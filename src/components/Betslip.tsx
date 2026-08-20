@@ -136,60 +136,60 @@ export function Betslip({
           </p>
         </header>
 
-        {selectedPhases.length > 0 && (
-          <ul className="betslip-phases" aria-label="Match phases">
-            {selectedPhases.map((phase) => (
-              <li key={phase.id}>
-                <span className="betslip-phase">{phase.name}</span>
-              </li>
-            ))}
-          </ul>
-        )}
-
-        {legs.length === 0 ? (
-          <p className="betslip-empty">
-            Select outcomes from markets to build up to {maxLegs} legs.
-          </p>
-        ) : (
-          <ul className="betslip-legs">
-            {legs.map((leg) => (
-              <li key={leg.id} className="betslip-leg">
-                <span className="betslip-bullet" aria-hidden />
-                <div className="betslip-leg-text">
-                  <span className="betslip-selection">{leg.selection}</span>
-                  <span className="betslip-detail"> — {leg.detail}</span>
-                </div>
-                <button
-                  type="button"
-                  className="betslip-remove"
-                  onClick={() => removeLeg(leg.id)}
-                  aria-label={`Remove ${leg.selection} — ${leg.detail}`}
-                >
-                  ×
-                </button>
-              </li>
-            ))}
-          </ul>
-        )}
-
-        <div
-          className="betslip-targeting"
-          aria-label={`${sport.name} competitions`}
-        >
-          {selectedCompetitions.length === 0 ? (
-            <p className="betslip-targeting-empty">No competitions selected</p>
-          ) : (
-            <ul className="betslip-competitions">
-              {selectedCompetitions.map((competition) => (
-                <li key={competition.id}>
-                  <span className="betslip-competition">{competition.name}</span>
+        <div className="betslip-scroll">
+          {selectedPhases.length > 0 && (
+            <ul className="betslip-phases" aria-label="Match phases">
+              {selectedPhases.map((phase) => (
+                <li key={phase.id}>
+                  <span className="betslip-phase">{phase.name}</span>
                 </li>
               ))}
             </ul>
           )}
-        </div>
 
-        <div className="betslip-foot">
+          {legs.length === 0 ? (
+            <p className="betslip-empty">
+              Select outcomes from markets to build up to {maxLegs} legs.
+            </p>
+          ) : (
+            <ul className="betslip-legs">
+              {legs.map((leg) => (
+                <li key={leg.id} className="betslip-leg">
+                  <span className="betslip-bullet" aria-hidden />
+                  <div className="betslip-leg-text">
+                    <span className="betslip-selection">{leg.selection}</span>
+                    <span className="betslip-detail"> — {leg.detail}</span>
+                  </div>
+                  <button
+                    type="button"
+                    className="betslip-remove"
+                    onClick={() => removeLeg(leg.id)}
+                    aria-label={`Remove ${leg.selection} — ${leg.detail}`}
+                  >
+                    ×
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
+
+          <div
+            className="betslip-targeting"
+            aria-label={`${sport.name} competitions`}
+          >
+            {selectedCompetitions.length === 0 ? (
+              <p className="betslip-targeting-empty">No competitions selected</p>
+            ) : (
+              <ul className="betslip-competitions">
+                {selectedCompetitions.map((competition) => (
+                  <li key={competition.id}>
+                    <span className="betslip-competition">{competition.name}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+
           <button
             type="button"
             className={`betslip-export-toggle ${exportOpen ? 'is-open' : ''}`}
@@ -236,7 +236,9 @@ export function Betslip({
               </pre>
             </section>
           )}
+        </div>
 
+        <div className="betslip-foot">
           <button
             type="button"
             className={`betslip-save ${saveState === 'saved' ? 'is-saved' : ''}`}

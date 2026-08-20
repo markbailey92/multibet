@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
+import { AppHeader } from './components/AppHeader'
 import { TemplatesHome } from './components/TemplatesHome'
 import { BuilderOverlay } from './components/BuilderOverlay'
 import { LegsProvider, useLegs } from './context/LegsContext'
@@ -74,12 +75,7 @@ function AppShell() {
 
   return (
     <div className="app">
-      <header className="topbar">
-        <div className="brand">
-          <span className="brand-mark">MultiBet</span>
-          <span className="brand-sub">Saved templates</span>
-        </div>
-      </header>
+      <AppHeader />
 
       <TemplatesHome
         templates={templates}

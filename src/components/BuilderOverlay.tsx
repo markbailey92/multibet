@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
+import { AppHeader } from './AppHeader'
 import { GroupedMarketBlock, MarketBlock } from './Templates'
 import { TemplateGallery } from './TemplateGallery'
 import { Betslip } from './Betslip'
@@ -169,6 +170,7 @@ export function BuilderOverlay({
   return (
     <div className="builder-overlay" role="dialog" aria-modal="true" aria-label={title}>
       <div className="builder-shell">
+        <AppHeader />
         <header className="topbar builder-topbar">
           <div className="brand">
             <button type="button" className="builder-back" onClick={handleClose}>
