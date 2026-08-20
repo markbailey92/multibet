@@ -1,0 +1,20 @@
+---
+description: Deploy MultiBet to Vercel via git push, not the Vercel CLI
+alwaysApply: true
+---
+
+# Vercel deploys via Git
+
+This project is linked to GitHub and Vercel.
+
+- **Production URL:** https://multibet-seven.vercel.app
+- **Repo:** https://github.com/markbailey92/multibet
+- **Branch:** `main` → production
+
+When the user asks to publish, deploy, or push to Vercel:
+
+1. Commit the relevant changes (only when they asked to commit/deploy, or when deploy requires it)
+2. `git push origin main`
+3. Do **not** use `vercel --prod` / `npx vercel deploy` for routine publishes — git push triggers the Vercel deployment
+
+If the GitHub ↔ Vercel link is broken, fix with `npx vercel git connect` after checking remotes.
