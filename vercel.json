@@ -1,0 +1,10 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "framework": "vite",
+  "rewrites": [
+    { "source": "/api/sheet.csv", "destination": "/api/sheet/markets" },
+    { "source": "/api/sheet/:name.csv", "destination": "/api/sheet/:name" },
+    { "source": "/((?!api/).*)", "destination": "/index.html" }
+  ]
+}

@@ -1,0 +1,2892 @@
+[
+  {
+    "id": "MatchResult",
+    "order": 1,
+    "sbmId": "2",
+    "name": "Match Result",
+    "description": "Which team will win in regular time, includes the draw.",
+    "categories": [
+      "Goals"
+    ],
+    "preMatch": true,
+    "inPlay": true,
+    "code": "MC123",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC123",
+      "options": [
+        "Home",
+        "Draw",
+        "Away"
+      ]
+    }
+  },
+  {
+    "id": "HalfTimeResult",
+    "order": 2,
+    "sbmId": "6832",
+    "name": "Half Time Result",
+    "description": "Which team will be winning at half time, includes the draw.",
+    "categories": [
+      "Goals"
+    ],
+    "preMatch": true,
+    "inPlay": true,
+    "code": "MC123",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC123",
+      "options": [
+        "Home",
+        "Draw",
+        "Away"
+      ]
+    }
+  },
+  {
+    "id": "DoubleChance",
+    "order": 3,
+    "sbmId": "7202",
+    "name": "Double Chance",
+    "description": "Betting on the outcome of the match but you have two outcomes on each selection, hence the double chance naming.",
+    "categories": [
+      "Goals"
+    ],
+    "preMatch": true,
+    "inPlay": true,
+    "code": "MC123",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC123",
+      "options": [
+        "Home or Draw",
+        "Home or Away",
+        "Draw or Away"
+      ]
+    }
+  },
+  {
+    "id": "TotalGoalsOverUnder",
+    "order": 4,
+    "sbmId": "259",
+    "name": "Total Goals Over/Under",
+    "description": "How many goals there will be in the match?",
+    "categories": [
+      "Goals"
+    ],
+    "preMatch": true,
+    "inPlay": true,
+    "code": "MC1212345",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC1212345",
+      "side1": "Over",
+      "side2": "Under",
+      "lines": [
+        "0.5",
+        "1.5",
+        "2.5",
+        "3.5",
+        "4.5",
+        "5.5",
+        "6.5",
+        "7.5"
+      ],
+      "lineColumns": 2
+    }
+  },
+  {
+    "id": "OddOrEvenTotal",
+    "order": 5,
+    "sbmId": "7354",
+    "name": "Odd/Even Total",
+    "description": "Whether the total number of goals will be odd or even",
+    "categories": [
+      "Goals"
+    ],
+    "preMatch": true,
+    "inPlay": true,
+    "code": "MC12",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC12",
+      "options": [
+        "Odd",
+        "Even"
+      ]
+    }
+  },
+  {
+    "id": "CorrectScore",
+    "order": 6,
+    "sbmId": "91",
+    "name": "Correct Score RANGE",
+    "description": "The score at the end of regular time",
+    "categories": [
+      "Goals"
+    ],
+    "preMatch": true,
+    "inPlay": true,
+    "code": "MC12312345",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC12312345",
+      "homeScores": [
+        "1-0",
+        "2-0",
+        "2-1",
+        "3-0",
+        "3-1",
+        "3-2",
+        "4-0",
+        "4-1",
+        "4-2",
+        "5-0"
+      ],
+      "drawScores": [
+        "0-0",
+        "1-1",
+        "2-2",
+        "3-3",
+        "4-4",
+        "5-5",
+        "6-6"
+      ],
+      "awayScores": [
+        "0-1",
+        "0-2",
+        "1-2",
+        "0-3",
+        "1-3",
+        "2-3",
+        "0-4",
+        "1-4",
+        "2-4",
+        "0-5"
+      ],
+      "variants": [
+        "grid",
+        "stepper"
+      ]
+    }
+  },
+  {
+    "id": "ExactNumberOfGoals",
+    "order": 7,
+    "sbmId": "8726",
+    "name": "Exact Number of Goals",
+    "description": "The exact number of goals scored in the match",
+    "categories": [
+      "Goals"
+    ],
+    "preMatch": true,
+    "inPlay": true,
+    "code": "MC12345",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC12345",
+      "numbers": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10"
+      ]
+    }
+  },
+  {
+    "id": "BothTeamsToScore",
+    "order": 8,
+    "sbmId": "7079",
+    "name": "Both Teams to Score",
+    "description": "Whether both teams are going to score in the match",
+    "categories": [
+      "Goals"
+    ],
+    "preMatch": true,
+    "inPlay": true,
+    "code": "MC12",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC12",
+      "options": [
+        "Yes",
+        "No"
+      ]
+    }
+  },
+  {
+    "id": "TeamWithMostCorners",
+    "order": 9,
+    "sbmId": "297",
+    "name": "Team with Most Corners",
+    "description": "Which team will take the most corners",
+    "categories": [
+      "Corners"
+    ],
+    "preMatch": true,
+    "inPlay": true,
+    "code": "MC123",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC123",
+      "options": [
+        "Home",
+        "Draw",
+        "Away"
+      ]
+    }
+  },
+  {
+    "id": "TotalCornersOverUnder",
+    "order": 10,
+    "sbmId": "7478",
+    "name": "Total Corners Over/Under",
+    "description": "How many corners there will be in the match",
+    "categories": [
+      "Corners"
+    ],
+    "preMatch": true,
+    "inPlay": true,
+    "code": "MC1212345",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC1212345",
+      "side1": "Over",
+      "side2": "Under",
+      "lines": [
+        "0.5",
+        "1.5",
+        "2.5",
+        "3.5",
+        "4.5",
+        "5.5",
+        "6.5",
+        "7.5",
+        "8.5",
+        "9.5",
+        "10.5",
+        "11.5"
+      ],
+      "lineColumns": 2
+    }
+  },
+  {
+    "id": "TeamWithMostBookingsPoints",
+    "order": 11,
+    "sbmId": "7783",
+    "name": "Team with Most Booking Points",
+    "description": "Team to receive the most yellow or red cards",
+    "categories": [
+      "Cards"
+    ],
+    "preMatch": true,
+    "inPlay": true,
+    "code": "MC123",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC123",
+      "options": [
+        "Home",
+        "Draw",
+        "Away"
+      ]
+    }
+  },
+  {
+    "id": "TotalBookingsPointsOverUnder",
+    "order": 12,
+    "sbmId": "7793",
+    "name": "Total Booking Points Over/Under",
+    "description": "How many booking points will be awarded during the match",
+    "categories": [
+      "Bookings"
+    ],
+    "preMatch": true,
+    "inPlay": true,
+    "code": "MC1212345",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC1212345",
+      "side1": "Over",
+      "side2": "Under",
+      "lines": [
+        "0.5",
+        "1.5",
+        "2.5",
+        "3.5",
+        "4.5",
+        "5.5",
+        "6.5",
+        "7.5",
+        "8.5",
+        "9.5"
+      ],
+      "lineColumns": 2
+    }
+  },
+  {
+    "id": "AnytimeGoalscorer",
+    "order": 13,
+    "sbmId": "14",
+    "name": "Anytime Goalscorer",
+    "description": "Which player is going to score at anytime during the match",
+    "categories": [
+      "Goals"
+    ],
+    "preMatch": true,
+    "inPlay": true,
+    "code": "MC12",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC12",
+      "options": [
+        "Home",
+        "Away"
+      ]
+    }
+  },
+  {
+    "id": "PlayerToScoreTwoOrMoreGoals",
+    "order": 14,
+    "sbmId": "7121",
+    "name": "Player to Score Two or More Goals",
+    "description": "Which player will score 2 or more goals in the match",
+    "categories": [
+      "Player",
+      "Goals"
+    ],
+    "preMatch": true,
+    "inPlay": true,
+    "code": "MC12",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC12",
+      "options": [
+        "Home",
+        "Away"
+      ]
+    }
+  },
+  {
+    "id": "PlayerToScoreAHatTrick",
+    "order": 15,
+    "sbmId": "42",
+    "name": "Player to Score a Hat Trick",
+    "description": "Which player will score 3 or more goals in the match",
+    "categories": [
+      "Player",
+      "Goals"
+    ],
+    "preMatch": true,
+    "inPlay": true,
+    "code": "MC12",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC12",
+      "options": [
+        "Home",
+        "Away"
+      ]
+    }
+  },
+  {
+    "id": "HalfTimeBothTeamsToScore",
+    "order": 16,
+    "sbmId": "10459",
+    "name": "Half Time Both Teams to Score",
+    "description": "Whether both teams would have scored before half time",
+    "categories": [
+      "Goals"
+    ],
+    "preMatch": true,
+    "inPlay": true,
+    "code": "MC12",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC12",
+      "options": [
+        "Yes",
+        "No"
+      ]
+    }
+  },
+  {
+    "id": "HalfTimeDoubleChance",
+    "order": 17,
+    "sbmId": "7769",
+    "name": "Half Time Double Chance",
+    "description": "Two chances to win by offering two outcomes on each selection. This is for half-time.",
+    "categories": [
+      "Goals"
+    ],
+    "preMatch": true,
+    "inPlay": true,
+    "code": "MC123",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC123",
+      "options": [
+        "Home or Draw",
+        "Home or Away",
+        "Draw or Away"
+      ]
+    }
+  },
+  {
+    "id": "HalfTimeCorrectScore",
+    "order": 18,
+    "sbmId": "170",
+    "name": "Half Time Correct Score RANGE",
+    "description": "Predicting the score at half time",
+    "categories": [
+      "Goals"
+    ],
+    "preMatch": true,
+    "inPlay": true,
+    "code": "MC12312345",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC12312345",
+      "homeScores": [
+        "1-0",
+        "2-0",
+        "2-1",
+        "3-0",
+        "3-1",
+        "3-2",
+        "4-0",
+        "4-1",
+        "4-2",
+        "5-0"
+      ],
+      "drawScores": [
+        "0-0",
+        "1-1",
+        "2-2",
+        "3-3",
+        "4-4",
+        "5-5",
+        "6-6"
+      ],
+      "awayScores": [
+        "0-1",
+        "0-2",
+        "1-2",
+        "0-3",
+        "1-3",
+        "2-3",
+        "0-4",
+        "1-4",
+        "2-4",
+        "0-5"
+      ],
+      "variants": [
+        "grid",
+        "stepper"
+      ]
+    }
+  },
+  {
+    "id": "HalfTimeTotalGoalsOverUnder",
+    "order": 19,
+    "sbmId": "7076",
+    "name": "Half Time Total Goals Over/Under",
+    "description": "How many goals have been scored by half time",
+    "categories": [
+      "Goals"
+    ],
+    "preMatch": true,
+    "inPlay": true,
+    "code": "MC1212345",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC1212345",
+      "side1": "Over",
+      "side2": "Under",
+      "lines": [
+        "0.5",
+        "1.5",
+        "2.5",
+        "3.5",
+        "4.5",
+        "5.5",
+        "6.5",
+        "7.5"
+      ],
+      "lineColumns": 2
+    }
+  },
+  {
+    "id": "HalfTimeOddOrEvenTotal",
+    "order": 20,
+    "sbmId": "9535",
+    "name": "Half Time Odd/Even Total",
+    "description": "Whether the number of goals scored is odd or even",
+    "categories": [
+      "Goals"
+    ],
+    "preMatch": true,
+    "inPlay": true,
+    "code": "MC12",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC12",
+      "options": [
+        "Odd",
+        "Even"
+      ]
+    }
+  },
+  {
+    "id": "HalfTimeExactNumberOfGoals",
+    "order": 21,
+    "sbmId": "10146",
+    "name": "Half Time Exact Number of Goals",
+    "description": "The exact number of goals scored at half time",
+    "categories": [
+      "Goals"
+    ],
+    "preMatch": true,
+    "inPlay": true,
+    "code": "MC12345",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC12345",
+      "numbers": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10"
+      ]
+    }
+  },
+  {
+    "id": "HomeTeamHalfTimeExactNumberOfGoals",
+    "order": 22,
+    "sbmId": "10589",
+    "name": "Home Team Half Time Exact Number of Goals",
+    "description": "The exact number of goals scored at half time by the home team",
+    "categories": [
+      "Goals"
+    ],
+    "preMatch": true,
+    "inPlay": true,
+    "code": "MC12345",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC12345",
+      "numbers": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10"
+      ]
+    }
+  },
+  {
+    "id": "AwayTeamHalfTimeExactNumberOfGoals",
+    "order": 23,
+    "sbmId": "10592",
+    "name": "Away Team Half Time Exact Number of Goals",
+    "description": "The exact number of goals scored at half time by the away team",
+    "categories": [
+      "Goals"
+    ],
+    "preMatch": true,
+    "inPlay": true,
+    "code": "MC12345",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC12345",
+      "numbers": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10"
+      ]
+    }
+  },
+  {
+    "id": "HalfTimeHomeTeamTotalGoalsOverUnder",
+    "order": 24,
+    "sbmId": "10850",
+    "name": "Half Time Home Team Total Goals Over/Under",
+    "description": "How many home team goals have been scored by half time",
+    "categories": [
+      "Goals"
+    ],
+    "preMatch": true,
+    "inPlay": true,
+    "code": "MC1212345",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC1212345",
+      "side1": "Over",
+      "side2": "Under",
+      "lines": [
+        "0.5",
+        "1.5",
+        "2.5",
+        "3.5",
+        "4.5",
+        "5.5",
+        "6.5",
+        "7.5"
+      ],
+      "lineColumns": 2
+    }
+  },
+  {
+    "id": "HalfTimeAwayTeamTotalGoalsOverUnder",
+    "order": 25,
+    "sbmId": "10849",
+    "name": "Half Time Away Team Total Goals Over/Under",
+    "description": "How many away team goals have been scored by half time",
+    "categories": [
+      "Goals"
+    ],
+    "preMatch": true,
+    "inPlay": true,
+    "code": "MC1212345",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC1212345",
+      "side1": "Over",
+      "side2": "Under",
+      "lines": [
+        "0.5",
+        "1.5",
+        "2.5",
+        "3.5",
+        "4.5",
+        "5.5",
+        "6.5",
+        "7.5"
+      ],
+      "lineColumns": 2
+    }
+  },
+  {
+    "id": "SecondHalfResult",
+    "order": 26,
+    "sbmId": "7591",
+    "name": "Second Half Result",
+    "description": "Which team will win the second half of the match",
+    "categories": [
+      "Goals"
+    ],
+    "preMatch": true,
+    "inPlay": true,
+    "code": "MC123",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC123",
+      "options": [
+        "Home",
+        "Draw",
+        "Away"
+      ]
+    }
+  },
+  {
+    "id": "SecondHalfDoubleChance",
+    "order": 27,
+    "sbmId": "8770",
+    "name": "Second Half Double Chance",
+    "description": "You get two chances to win by offering two outcomes on each selection. This is for the second half",
+    "categories": [
+      "Goals"
+    ],
+    "preMatch": true,
+    "inPlay": true,
+    "code": "MC123",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC123",
+      "options": [
+        "Home or Draw",
+        "Home or Away",
+        "Draw or Away"
+      ]
+    }
+  },
+  {
+    "id": "SecondHalfCorrectScore",
+    "order": 28,
+    "sbmId": "7809",
+    "name": "Second Half Correct Score RANGE",
+    "description": "Predicting the second half score",
+    "categories": [
+      "Goals"
+    ],
+    "preMatch": true,
+    "inPlay": true,
+    "code": "MC12312345",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC12312345",
+      "homeScores": [
+        "1-0",
+        "2-0",
+        "2-1",
+        "3-0",
+        "3-1",
+        "3-2",
+        "4-0",
+        "4-1",
+        "4-2",
+        "5-0"
+      ],
+      "drawScores": [
+        "0-0",
+        "1-1",
+        "2-2",
+        "3-3",
+        "4-4",
+        "5-5",
+        "6-6"
+      ],
+      "awayScores": [
+        "0-1",
+        "0-2",
+        "1-2",
+        "0-3",
+        "1-3",
+        "2-3",
+        "0-4",
+        "1-4",
+        "2-4",
+        "0-5"
+      ],
+      "variants": [
+        "grid",
+        "stepper"
+      ]
+    }
+  },
+  {
+    "id": "SecondHalfTotalGoalsOverUnder",
+    "order": 29,
+    "sbmId": "7706",
+    "name": "Second Half Total Goals Over/Under",
+    "description": "How many goals have been scored in the second half",
+    "categories": [
+      "Goals"
+    ],
+    "preMatch": true,
+    "inPlay": true,
+    "code": "MC1212345",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC1212345",
+      "side1": "Over",
+      "side2": "Under",
+      "lines": [
+        "0.5",
+        "1.5",
+        "2.5",
+        "3.5",
+        "4.5",
+        "5.5",
+        "6.5",
+        "7.5"
+      ],
+      "lineColumns": 2
+    }
+  },
+  {
+    "id": "SecondHalfBothTeamsToScore",
+    "order": 30,
+    "sbmId": "10576",
+    "name": "Second Half Both Teams to Score",
+    "description": "Whether both teams will score in the second half",
+    "categories": [
+      "Goals"
+    ],
+    "preMatch": true,
+    "inPlay": true,
+    "code": "MC12",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC12",
+      "options": [
+        "Yes",
+        "No"
+      ]
+    }
+  },
+  {
+    "id": "HomeTeamTotalGoalsOverUnder",
+    "order": 31,
+    "sbmId": "9498",
+    "name": "Home Team Total Goals Over/Under",
+    "description": "How many home team goals there will there be in the match?",
+    "categories": [
+      "Goals"
+    ],
+    "preMatch": true,
+    "inPlay": true,
+    "code": "MC1212345",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC1212345",
+      "side1": "Over",
+      "side2": "Under",
+      "lines": [
+        "0.5",
+        "1.5",
+        "2.5",
+        "3.5",
+        "4.5",
+        "5.5",
+        "6.5",
+        "7.5"
+      ],
+      "lineColumns": 2
+    }
+  },
+  {
+    "id": "AwayTeamTotalGoalsOverUnder",
+    "order": 32,
+    "sbmId": "9497",
+    "name": "Away Team Total Goals Over/Under",
+    "description": "How many away team goals there will there be in the match?",
+    "categories": [
+      "Goals"
+    ],
+    "preMatch": true,
+    "inPlay": true,
+    "code": "MC1212345",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC1212345",
+      "side1": "Over",
+      "side2": "Under",
+      "lines": [
+        "0.5",
+        "1.5",
+        "2.5",
+        "3.5",
+        "4.5",
+        "5.5",
+        "6.5",
+        "7.5"
+      ],
+      "lineColumns": 2
+    }
+  },
+  {
+    "id": "HomeTeamExactNumberOfGoals",
+    "order": 33,
+    "sbmId": "10869",
+    "name": "Home Team Exact Number of Goals",
+    "description": "The exact number of home team goals scored in the match",
+    "categories": [
+      "Goals"
+    ],
+    "preMatch": true,
+    "inPlay": true,
+    "code": "MC12345",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC12345",
+      "numbers": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10"
+      ]
+    }
+  },
+  {
+    "id": "AwayTeamExactNumberOfGoals",
+    "order": 34,
+    "sbmId": "10870",
+    "name": "Away Team Exact Number of Goals",
+    "description": "The exact number of away team goals scored in the match",
+    "categories": [
+      "Goals"
+    ],
+    "preMatch": true,
+    "inPlay": true,
+    "code": "MC12345",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC12345",
+      "numbers": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10"
+      ]
+    }
+  },
+  {
+    "id": "FirstGoalscorer",
+    "order": 35,
+    "sbmId": "12",
+    "name": "First Goalscorer",
+    "description": "Which player is going to score first goal during the normal time of the match - available during PreMatch phase only",
+    "categories": [
+      "Goals"
+    ],
+    "preMatch": true,
+    "inPlay": false,
+    "code": "MC12",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC12",
+      "options": [
+        "Home",
+        "Away"
+      ]
+    }
+  },
+  {
+    "id": "LastGoalscorer",
+    "order": 36,
+    "sbmId": "13",
+    "name": "Last Goalscorer",
+    "description": "Which player is going to score last goal during the normal time of the match - available during PreMatch phase only",
+    "categories": [
+      "Goals"
+    ],
+    "preMatch": true,
+    "inPlay": false,
+    "code": "MC12",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC12",
+      "options": [
+        "Home",
+        "Away"
+      ]
+    }
+  },
+  {
+    "id": "FirstTeamToScore",
+    "order": 38,
+    "sbmId": "295",
+    "name": "First Team to Score",
+    "description": "Which team is going to score first goal during the normal time of the match - available during PreMatch phase only",
+    "categories": [
+      "Goals"
+    ],
+    "preMatch": true,
+    "inPlay": true,
+    "code": "MC123",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC123",
+      "options": [
+        "Home",
+        "No Goal",
+        "Away"
+      ]
+    }
+  },
+  {
+    "id": "LastTeamToScore",
+    "order": 39,
+    "sbmId": "6911",
+    "name": "Last Team to Score",
+    "description": "Which team is going to score last goal during the normal time of the match - available during PreMatch phase only",
+    "categories": [
+      "Goals"
+    ],
+    "preMatch": true,
+    "inPlay": true,
+    "code": "MC123",
+    "codeSource": "inferred",
+    "template": {
+      "code": "MC123",
+      "options": [
+        "Home",
+        "No Goal",
+        "Away"
+      ]
+    }
+  },
+  {
+    "id": "NextTeamToScore",
+    "order": 40,
+    "sbmId": "7105",
+    "name": "categoryName: Next Team to Score\nname: First Team to Score, Second Team to Score, etc",
+    "description": "Which team is going to score next goal during the normal time of the match - available during InPlay phase only",
+    "categories": [
+      "Goals"
+    ],
+    "preMatch": true,
+    "inPlay": true,
+    "code": "MC123",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC123",
+      "options": [
+        "Home",
+        "No Goal",
+        "Away"
+      ]
+    }
+  },
+  {
+    "id": "HomeTeamTotalCornersOverUnder",
+    "order": 41,
+    "sbmId": "10747",
+    "name": "Home Team Total Corners Over/Under",
+    "description": "How many corners will Home team have in the match",
+    "categories": [
+      "Corners"
+    ],
+    "preMatch": true,
+    "inPlay": true,
+    "code": "MC1212345",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC1212345",
+      "side1": "Over",
+      "side2": "Under",
+      "lines": [
+        "0.5",
+        "1.5",
+        "2.5",
+        "3.5",
+        "4.5",
+        "5.5",
+        "6.5",
+        "7.5",
+        "8.5",
+        "9.5",
+        "10.5",
+        "11.5"
+      ],
+      "lineColumns": 2
+    }
+  },
+  {
+    "id": "AwayTeamTotalCornersOverUnder",
+    "order": 42,
+    "sbmId": "10748",
+    "name": "Away Team Total Corners Over/Under",
+    "description": "How many corners will Away team have in the match",
+    "categories": [
+      "Corners"
+    ],
+    "preMatch": true,
+    "inPlay": true,
+    "code": "MC1212345",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC1212345",
+      "side1": "Over",
+      "side2": "Under",
+      "lines": [
+        "0.5",
+        "1.5",
+        "2.5",
+        "3.5",
+        "4.5",
+        "5.5",
+        "6.5",
+        "7.5",
+        "8.5",
+        "9.5",
+        "10.5",
+        "11.5"
+      ],
+      "lineColumns": 2
+    }
+  },
+  {
+    "id": "CornersHandicapWithTie",
+    "order": 43,
+    "sbmId": "6631",
+    "name": "Corners Handicap with Tie",
+    "description": "Which team will take the most corners with a conditional initial corners score",
+    "categories": [
+      "Corners"
+    ],
+    "preMatch": true,
+    "inPlay": true,
+    "code": "MC1212345",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC1212345",
+      "side1": "Home",
+      "side2": "Away",
+      "lines": [
+        "0.5",
+        "1.5",
+        "2.5",
+        "3.5",
+        "4.5",
+        "5.5",
+        "6.5",
+        "7.5",
+        "8.5",
+        "9.5",
+        "10.5",
+        "11.5"
+      ],
+      "lineColumns": 2
+    }
+  },
+  {
+    "id": "OddOrEvenTotalCorners",
+    "order": 44,
+    "sbmId": "6491",
+    "name": "Total Corners Odd/Even",
+    "description": "Whether the total number of corners will be odd or even in the match",
+    "categories": [
+      "Corners"
+    ],
+    "preMatch": true,
+    "inPlay": true,
+    "code": "MC12",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC12",
+      "options": [
+        "Odd",
+        "Even"
+      ]
+    }
+  },
+  {
+    "id": "HalfTimeTotalCornersOverUnder",
+    "order": 45,
+    "sbmId": "7703",
+    "name": "Half Time Total Corners Over/Under",
+    "description": "How many corners there will be after half time",
+    "categories": [
+      "Corners"
+    ],
+    "preMatch": true,
+    "inPlay": true,
+    "code": "MC1212345",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC1212345",
+      "side1": "Over",
+      "side2": "Under",
+      "lines": [
+        "0.5",
+        "1.5",
+        "2.5",
+        "3.5",
+        "4.5",
+        "5.5",
+        "6.5",
+        "7.5",
+        "8.5",
+        "9.5",
+        "10.5",
+        "11.5"
+      ],
+      "lineColumns": 2
+    }
+  },
+  {
+    "id": "HalfTimeHomeTeamTotalCornersOverUnder",
+    "order": 46,
+    "sbmId": "10769",
+    "name": "Half Time Home Team Total Corners Over/Under",
+    "description": "How many corners will Home team have after half time",
+    "categories": [
+      "Player",
+      "Shots"
+    ],
+    "preMatch": true,
+    "inPlay": true,
+    "code": "MC1212345",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC1212345",
+      "side1": "Over",
+      "side2": "Under",
+      "lines": [
+        "0.5",
+        "1.5",
+        "2.5",
+        "3.5",
+        "4.5",
+        "5.5",
+        "6.5",
+        "7.5",
+        "8.5",
+        "9.5",
+        "10.5",
+        "11.5"
+      ],
+      "lineColumns": 2
+    }
+  },
+  {
+    "id": "HalfTimeAwayTeamTotalCornersOverUnder",
+    "order": 47,
+    "sbmId": "10768",
+    "name": "Half Time Away Team Total Corners Over/Under",
+    "description": "How many corners will Away team have after half time",
+    "categories": [
+      "Corners"
+    ],
+    "preMatch": true,
+    "inPlay": true,
+    "code": "MC1212345",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC1212345",
+      "side1": "Over",
+      "side2": "Under",
+      "lines": [
+        "0.5",
+        "1.5",
+        "2.5",
+        "3.5",
+        "4.5",
+        "5.5",
+        "6.5",
+        "7.5",
+        "8.5",
+        "9.5",
+        "10.5",
+        "11.5"
+      ],
+      "lineColumns": 2
+    }
+  },
+  {
+    "id": "HalfTimeOddOrEvenTotalCorners",
+    "order": 48,
+    "sbmId": "10878",
+    "name": "Half Time Total Corners Odd/Even",
+    "description": "Whether the total number of corners will be odd or even after half time",
+    "categories": [
+      "Corners"
+    ],
+    "preMatch": true,
+    "inPlay": true,
+    "code": "MC12",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC12",
+      "options": [
+        "Odd",
+        "Even"
+      ]
+    }
+  },
+  {
+    "id": "HalfTimeTeamWithMostCorners",
+    "order": 49,
+    "sbmId": "10792",
+    "name": "Half Time Team with Most Corners",
+    "description": "Which team will take the most corners before half-time",
+    "categories": [
+      "Corners"
+    ],
+    "preMatch": true,
+    "inPlay": true,
+    "code": "MC123",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC123",
+      "options": [
+        "Home",
+        "Draw",
+        "Away"
+      ]
+    }
+  },
+  {
+    "id": "MatchRedCard",
+    "order": 50,
+    "sbmId": "7052",
+    "name": "Red Card Yes/No",
+    "description": "Will there be a red card in the match",
+    "categories": [
+      "Cards"
+    ],
+    "preMatch": true,
+    "inPlay": true,
+    "code": "MC12",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC12",
+      "options": [
+        "Yes",
+        "No"
+      ]
+    }
+  },
+  {
+    "id": "HomeTeamRedCard",
+    "order": 51,
+    "sbmId": "12189",
+    "name": "Home Team Red Card Yes/No",
+    "description": "Will there be a Home team red card in the match",
+    "categories": [
+      "Cards"
+    ],
+    "preMatch": true,
+    "inPlay": true,
+    "code": "MC12",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC12",
+      "options": [
+        "Yes",
+        "No"
+      ]
+    }
+  },
+  {
+    "id": "AwayTeamRedCard",
+    "order": 52,
+    "sbmId": "12190",
+    "name": "Away Team Red Card Yes/No",
+    "description": "Will there be an Away team red card in the match",
+    "categories": [
+      "Cards"
+    ],
+    "preMatch": true,
+    "inPlay": true,
+    "code": "MC12",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC12",
+      "options": [
+        "Yes",
+        "No"
+      ]
+    }
+  },
+  {
+    "id": "ExactNumberOfCards",
+    "order": 53,
+    "sbmId": "15179",
+    "name": "Exact Number of Cards",
+    "description": "The exact number of cards given in the match",
+    "categories": [
+      "Cards"
+    ],
+    "preMatch": true,
+    "inPlay": true,
+    "code": "MC12345",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC12345",
+      "numbers": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
+      ]
+    }
+  },
+  {
+    "id": "HalfTimeExactNumberOfCards",
+    "order": 54,
+    "sbmId": "16035",
+    "name": "Half Time Exact Number of Cards",
+    "description": "Exact number of cards given after half-time",
+    "categories": [
+      "Cards"
+    ],
+    "preMatch": true,
+    "inPlay": true,
+    "code": "MC12345",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC12345",
+      "numbers": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
+      ]
+    }
+  },
+  {
+    "id": "TotalCardsOverUnder",
+    "order": 55,
+    "sbmId": "15064",
+    "name": "Total Cards Over/Under",
+    "description": "How many cards will be in the match",
+    "categories": [
+      "Cards"
+    ],
+    "preMatch": true,
+    "inPlay": true,
+    "code": "MC1212345",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC1212345",
+      "side1": "Over",
+      "side2": "Under",
+      "lines": [
+        "0.5",
+        "1.5",
+        "2.5",
+        "3.5",
+        "4.5",
+        "5.5",
+        "6.5",
+        "7.5",
+        "8.5",
+        "9.5"
+      ],
+      "lineColumns": 2
+    }
+  },
+  {
+    "id": "HomeTeamTotalCardsOverUnder",
+    "order": 56,
+    "sbmId": "13649",
+    "name": "Home Team Total Cards Over/Under",
+    "description": "How many Home team cards will be in the match",
+    "categories": [
+      "Cards"
+    ],
+    "preMatch": true,
+    "inPlay": true,
+    "code": "MC1212345",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC1212345",
+      "side1": "Over",
+      "side2": "Under",
+      "lines": [
+        "0.5",
+        "1.5",
+        "2.5",
+        "3.5",
+        "4.5",
+        "5.5",
+        "6.5",
+        "7.5",
+        "8.5",
+        "9.5"
+      ],
+      "lineColumns": 2
+    }
+  },
+  {
+    "id": "AwayTeamTotalCardsOverUnder",
+    "order": 57,
+    "sbmId": "13650",
+    "name": "Away Team Total Cards Over/Under",
+    "description": "How many Away team cards will be in the match",
+    "categories": [
+      "Cards"
+    ],
+    "preMatch": true,
+    "inPlay": true,
+    "code": "MC1212345",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC1212345",
+      "side1": "Over",
+      "side2": "Under",
+      "lines": [
+        "0.5",
+        "1.5",
+        "2.5",
+        "3.5",
+        "4.5",
+        "5.5",
+        "6.5",
+        "7.5",
+        "8.5",
+        "9.5"
+      ],
+      "lineColumns": 2
+    }
+  },
+  {
+    "id": "HalfTimeTotalCardsOverUnder",
+    "order": 58,
+    "sbmId": "13696",
+    "name": "Half Time Total Cards Over/Under",
+    "description": "How many cards will be after half-time",
+    "categories": [
+      "Cards"
+    ],
+    "preMatch": true,
+    "inPlay": true,
+    "code": "MC1212345",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC1212345",
+      "side1": "Over",
+      "side2": "Under",
+      "lines": [
+        "0.5",
+        "1.5",
+        "2.5",
+        "3.5",
+        "4.5",
+        "5.5",
+        "6.5",
+        "7.5",
+        "8.5",
+        "9.5"
+      ],
+      "lineColumns": 2
+    }
+  },
+  {
+    "id": "HalfTimeHomeTeamTotalCardsOverUnder",
+    "order": 59,
+    "sbmId": "13694",
+    "name": "Half Time Home Team Total Cards Over/Under",
+    "description": "How many Home team cards will be after half-time",
+    "categories": [
+      "Cards"
+    ],
+    "preMatch": true,
+    "inPlay": true,
+    "code": "MC1212345",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC1212345",
+      "side1": "Over",
+      "side2": "Under",
+      "lines": [
+        "0.5",
+        "1.5",
+        "2.5",
+        "3.5",
+        "4.5",
+        "5.5",
+        "6.5",
+        "7.5",
+        "8.5",
+        "9.5"
+      ],
+      "lineColumns": 2
+    }
+  },
+  {
+    "id": "HalfTimeAwayTeamTotalCardsOverUnder",
+    "order": 60,
+    "sbmId": "13695",
+    "name": "Half Time Away Team Total Cards Over/Under",
+    "description": "How many Away team cards will be after half-time",
+    "categories": [
+      "Cards"
+    ],
+    "preMatch": true,
+    "inPlay": true,
+    "code": "MC1212345",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC1212345",
+      "side1": "Over",
+      "side2": "Under",
+      "lines": [
+        "0.5",
+        "1.5",
+        "2.5",
+        "3.5",
+        "4.5",
+        "5.5",
+        "6.5",
+        "7.5",
+        "8.5",
+        "9.5"
+      ],
+      "lineColumns": 2
+    }
+  },
+  {
+    "id": "PlayerTotalAssists",
+    "order": 61,
+    "sbmId": "16052",
+    "name": "Player Total Assists",
+    "description": "Total number of player’s assists in the match",
+    "categories": [
+      "Player",
+      "Assists"
+    ],
+    "preMatch": true,
+    "inPlay": false,
+    "code": "MC1212345",
+    "codeSource": "inferred",
+    "template": {
+      "code": "MC1212345",
+      "side1": "Over",
+      "side2": "Under",
+      "lines": [
+        "0.5",
+        "1.5",
+        "2.5",
+        "3.5",
+        "4.5",
+        "5.5",
+        "6.5",
+        "7.5"
+      ],
+      "lineColumns": 2
+    }
+  },
+  {
+    "id": "PlayerTotalShots",
+    "order": 62,
+    "sbmId": "16054",
+    "name": "Player Total Shots",
+    "description": "Total number of player’s shots attempts in the match",
+    "categories": [
+      "Player",
+      "Shots"
+    ],
+    "preMatch": true,
+    "inPlay": false,
+    "code": "MC1212345",
+    "codeSource": "inferred",
+    "template": {
+      "code": "MC1212345",
+      "side1": "Over",
+      "side2": "Under",
+      "lines": [
+        "0.5",
+        "1.5",
+        "2.5",
+        "3.5",
+        "4.5",
+        "5.5",
+        "6.5",
+        "7.5",
+        "8.5",
+        "9.5",
+        "10.5",
+        "11.5",
+        "12.5",
+        "13.5",
+        "14.5",
+        "15.5"
+      ],
+      "lineColumns": 2
+    }
+  },
+  {
+    "id": "PlayerTotalShotsOnGoal",
+    "order": 63,
+    "sbmId": "16053",
+    "name": "Player Total Shots on Target",
+    "description": "Total number of shots on target in the match",
+    "categories": [
+      "Player",
+      "Shots"
+    ],
+    "preMatch": true,
+    "inPlay": false,
+    "code": "MC1212345",
+    "codeSource": "inferred",
+    "template": {
+      "code": "MC1212345",
+      "side1": "Over",
+      "side2": "Under",
+      "lines": [
+        "0.5",
+        "1.5",
+        "2.5",
+        "3.5",
+        "4.5",
+        "5.5",
+        "6.5",
+        "7.5",
+        "8.5",
+        "9.5",
+        "10.5",
+        "11.5",
+        "12.5",
+        "13.5",
+        "14.5",
+        "15.5"
+      ],
+      "lineColumns": 2
+    }
+  },
+  {
+    "id": "TotalShotsOverUnder",
+    "order": 64,
+    "sbmId": "16055",
+    "name": "Total Shots Over/Under",
+    "description": "Total number of shots attempts in the match",
+    "categories": [
+      "Shots"
+    ],
+    "preMatch": true,
+    "inPlay": true,
+    "code": "MC1212345",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC1212345",
+      "side1": "Over",
+      "side2": "Under",
+      "lines": [
+        "0.5",
+        "1.5",
+        "2.5",
+        "3.5",
+        "4.5",
+        "5.5",
+        "6.5",
+        "7.5",
+        "8.5",
+        "9.5",
+        "10.5",
+        "11.5",
+        "12.5",
+        "13.5",
+        "14.5",
+        "15.5"
+      ],
+      "lineColumns": 2
+    }
+  },
+  {
+    "id": "HomeTeamTotalShotsOverUnder",
+    "order": 65,
+    "sbmId": "16056",
+    "name": "Home Team Total Shots Over/Under",
+    "description": "Total number of Home team shots attempts in the match",
+    "categories": [
+      "Shots"
+    ],
+    "preMatch": true,
+    "inPlay": true,
+    "code": "MC1212345",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC1212345",
+      "side1": "Over",
+      "side2": "Under",
+      "lines": [
+        "0.5",
+        "1.5",
+        "2.5",
+        "3.5",
+        "4.5",
+        "5.5",
+        "6.5",
+        "7.5",
+        "8.5",
+        "9.5",
+        "10.5",
+        "11.5",
+        "12.5",
+        "13.5",
+        "14.5",
+        "15.5"
+      ],
+      "lineColumns": 2
+    }
+  },
+  {
+    "id": "AwayTeamTotalShotsOverUnder",
+    "order": 66,
+    "sbmId": "16057",
+    "name": "Away Team Total Shots Over/Under",
+    "description": "Total number of Away team shots attempts in the match",
+    "categories": [
+      "Shots"
+    ],
+    "preMatch": true,
+    "inPlay": true,
+    "code": "MC1212345",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC1212345",
+      "side1": "Over",
+      "side2": "Under",
+      "lines": [
+        "0.5",
+        "1.5",
+        "2.5",
+        "3.5",
+        "4.5",
+        "5.5",
+        "6.5",
+        "7.5",
+        "8.5",
+        "9.5",
+        "10.5",
+        "11.5",
+        "12.5",
+        "13.5",
+        "14.5",
+        "15.5"
+      ],
+      "lineColumns": 2
+    }
+  },
+  {
+    "id": "TeamWithMostShots",
+    "order": 67,
+    "sbmId": "16058",
+    "name": "Team With Most Shots",
+    "description": "The team to have the most shots attempts number in the match",
+    "categories": [
+      "Shots"
+    ],
+    "preMatch": true,
+    "inPlay": true,
+    "code": "MC123",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC123",
+      "options": [
+        "Home Team",
+        "Draw",
+        "Away Team"
+      ]
+    }
+  },
+  {
+    "id": "TotalShotsOnGoalOverUnder",
+    "order": 68,
+    "sbmId": "7797",
+    "name": "Total Shots on Target Over/Under",
+    "description": "Total number of shots on target for both teams in the match",
+    "categories": [
+      "Shots"
+    ],
+    "preMatch": true,
+    "inPlay": true,
+    "code": "MC1212345",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC1212345",
+      "side1": "Over",
+      "side2": "Under",
+      "lines": [
+        "0.5",
+        "1.5",
+        "2.5",
+        "3.5",
+        "4.5",
+        "5.5",
+        "6.5",
+        "7.5",
+        "8.5",
+        "9.5",
+        "10.5",
+        "11.5",
+        "12.5",
+        "13.5",
+        "14.5",
+        "15.5"
+      ],
+      "lineColumns": 2
+    }
+  },
+  {
+    "id": "HomeTeamTotalShotsOnGoalOverUnder",
+    "order": 69,
+    "sbmId": "10756",
+    "name": "Home Team Total Shots on Target Over/Under",
+    "description": "Total number of shots on target for Home team in the match",
+    "categories": [
+      "Shots"
+    ],
+    "preMatch": true,
+    "inPlay": true,
+    "code": "MC1212345",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC1212345",
+      "side1": "Over",
+      "side2": "Under",
+      "lines": [
+        "0.5",
+        "1.5",
+        "2.5",
+        "3.5",
+        "4.5",
+        "5.5",
+        "6.5",
+        "7.5",
+        "8.5",
+        "9.5",
+        "10.5",
+        "11.5",
+        "12.5",
+        "13.5",
+        "14.5",
+        "15.5"
+      ],
+      "lineColumns": 2
+    }
+  },
+  {
+    "id": "AwayTeamTotalShotsOnGoalOverUnder",
+    "order": 70,
+    "sbmId": "10755",
+    "name": "Away Team Total Shots on Target Over/Under",
+    "description": "Total number of shots on target for Away team in the match",
+    "categories": [
+      "Shots"
+    ],
+    "preMatch": true,
+    "inPlay": true,
+    "code": "MC1212345",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC1212345",
+      "side1": "Over",
+      "side2": "Under",
+      "lines": [
+        "0.5",
+        "1.5",
+        "2.5",
+        "3.5",
+        "4.5",
+        "5.5",
+        "6.5",
+        "7.5",
+        "8.5",
+        "9.5",
+        "10.5",
+        "11.5",
+        "12.5",
+        "13.5",
+        "14.5",
+        "15.5"
+      ],
+      "lineColumns": 2
+    }
+  },
+  {
+    "id": "TeamWithMostShotsOnGoal",
+    "order": 71,
+    "sbmId": "7782",
+    "name": "Team with Most Shots on Target",
+    "description": "Team to have the most shots on target in the match",
+    "categories": [
+      "Shots"
+    ],
+    "preMatch": true,
+    "inPlay": false,
+    "code": "MC123",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC123",
+      "options": [
+        "Home Team",
+        "Draw",
+        "Away Team"
+      ]
+    }
+  },
+  {
+    "id": "PlayerToBeSentOff",
+    "order": 72,
+    "sbmId": "12205",
+    "name": "Player to Receive a Red Card",
+    "description": "Player to get red card in the match. - available during PreMatch phase only",
+    "categories": [
+      "Cards"
+    ],
+    "preMatch": true,
+    "inPlay": false,
+    "code": "MC12",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC12",
+      "options": [
+        "Home",
+        "Away"
+      ]
+    }
+  },
+  {
+    "id": "PlayerToBeBooked",
+    "order": 73,
+    "sbmId": "7143",
+    "name": "Player to Receive a Card",
+    "description": "Player to get any card in the match. - available during PreMatch phase only",
+    "categories": [
+      "Cards"
+    ],
+    "preMatch": false,
+    "inPlay": true,
+    "code": "MC12",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC12",
+      "options": [
+        "Home",
+        "Away"
+      ]
+    }
+  },
+  {
+    "id": "PlayerToHave1OrMoreAssists",
+    "order": 74,
+    "sbmId": "12104",
+    "name": "Player to Assist",
+    "description": "Player to make one or more assists in the match",
+    "categories": [
+      "Player",
+      "Assists"
+    ],
+    "preMatch": false,
+    "inPlay": true,
+    "code": "MC12",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC12",
+      "options": [
+        "Home",
+        "Away"
+      ]
+    }
+  },
+  {
+    "id": "PlayerToHave2OrMoreAssists",
+    "order": 75,
+    "sbmId": "16171",
+    "name": "Player to have 2 or More Assists",
+    "description": "Player to make two or more assists in the match",
+    "categories": [
+      "Player",
+      "Assists"
+    ],
+    "preMatch": false,
+    "inPlay": true,
+    "code": "MC12",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC12",
+      "options": [
+        "Home",
+        "Away"
+      ]
+    }
+  },
+  {
+    "id": "PlayerToHave3OrMoreAssists",
+    "order": 76,
+    "sbmId": "16172",
+    "name": "Player to have 3 or More Assists",
+    "description": "Player to make three or more assists in the match",
+    "categories": [
+      "Player",
+      "Assists"
+    ],
+    "preMatch": false,
+    "inPlay": true,
+    "code": "MC12",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC12",
+      "options": [
+        "Home",
+        "Away"
+      ]
+    }
+  },
+  {
+    "id": "PlayerToHave4OrMoreAssists",
+    "order": 77,
+    "sbmId": "16173",
+    "name": "Player to have 4 or More Assists",
+    "description": "Player to make four or more assists in the match",
+    "categories": [
+      "Player",
+      "Assists"
+    ],
+    "preMatch": false,
+    "inPlay": true,
+    "code": "MC12",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC12",
+      "options": [
+        "Home",
+        "Away"
+      ]
+    }
+  },
+  {
+    "id": "PlayerToHave5OrMoreAssists",
+    "order": 78,
+    "sbmId": "16174",
+    "name": "Player to have 5 or More Assists",
+    "description": "Player to make five or more assists in the match",
+    "categories": [
+      "Player",
+      "Assists"
+    ],
+    "preMatch": false,
+    "inPlay": true,
+    "code": "MC12",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC12",
+      "options": [
+        "Home",
+        "Away"
+      ]
+    }
+  },
+  {
+    "id": "PlayerToHave1OrMoreShots",
+    "order": 79,
+    "sbmId": "16135",
+    "name": "Player to have 1 or More Shots",
+    "description": "Player to make one or more shots in the match",
+    "categories": [
+      "Player",
+      "Shots"
+    ],
+    "preMatch": false,
+    "inPlay": true,
+    "code": "MC12",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC12",
+      "options": [
+        "Home",
+        "Away"
+      ]
+    }
+  },
+  {
+    "id": "PlayerToHave2OrMoreShots",
+    "order": 80,
+    "sbmId": "16136",
+    "name": "Player to have 2 or More Shots",
+    "description": "Player to make two or more shots in the match",
+    "categories": [
+      "Player",
+      "Shots"
+    ],
+    "preMatch": false,
+    "inPlay": true,
+    "code": "MC12",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC12",
+      "options": [
+        "Home",
+        "Away"
+      ]
+    }
+  },
+  {
+    "id": "PlayerToHave3OrMoreShots",
+    "order": 81,
+    "sbmId": "16137",
+    "name": "Player to have 3 or More Shots",
+    "description": "Player to make three or more shots in the match",
+    "categories": [
+      "Player",
+      "Shots"
+    ],
+    "preMatch": false,
+    "inPlay": true,
+    "code": "MC12",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC12",
+      "options": [
+        "Home",
+        "Away"
+      ]
+    }
+  },
+  {
+    "id": "PlayerToHave4OrMoreShots",
+    "order": 82,
+    "sbmId": "16138",
+    "name": "Player to have 4 or More Shots",
+    "description": "Player to make four or more shots in the match",
+    "categories": [
+      "Player",
+      "Shots"
+    ],
+    "preMatch": false,
+    "inPlay": true,
+    "code": "MC12",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC12",
+      "options": [
+        "Home",
+        "Away"
+      ]
+    }
+  },
+  {
+    "id": "PlayerToHave5OrMoreShots",
+    "order": 83,
+    "sbmId": "16139",
+    "name": "Player to have 5 or More Shots",
+    "description": "Player to make five or more shots in the match",
+    "categories": [
+      "Player",
+      "Shots"
+    ],
+    "preMatch": false,
+    "inPlay": true,
+    "code": "MC12",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC12",
+      "options": [
+        "Home",
+        "Away"
+      ]
+    }
+  },
+  {
+    "id": "PlayerToHave6OrMoreShots",
+    "order": 84,
+    "sbmId": "16140",
+    "name": "Player to have 6 or More Shots",
+    "description": "Player to make six or more shots in the match",
+    "categories": [
+      "Player",
+      "Shots"
+    ],
+    "preMatch": false,
+    "inPlay": true,
+    "code": "MC12",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC12",
+      "options": [
+        "Home",
+        "Away"
+      ]
+    }
+  },
+  {
+    "id": "PlayerToHave7OrMoreShots",
+    "order": 85,
+    "sbmId": "16141",
+    "name": "Player to have 7 or More Shots",
+    "description": "Player to make seven or more shots in the match",
+    "categories": [
+      "Player",
+      "Shots"
+    ],
+    "preMatch": false,
+    "inPlay": true,
+    "code": "MC12",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC12",
+      "options": [
+        "Home",
+        "Away"
+      ]
+    }
+  },
+  {
+    "id": "PlayerToHave8OrMoreShots",
+    "order": 86,
+    "sbmId": "16142",
+    "name": "Player to have 8 or More Shots",
+    "description": "Player to make eight or more shots in the match",
+    "categories": [
+      "Player",
+      "Shots"
+    ],
+    "preMatch": false,
+    "inPlay": true,
+    "code": "MC12",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC12",
+      "options": [
+        "Home",
+        "Away"
+      ]
+    }
+  },
+  {
+    "id": "PlayerToHave1OrMoreShotsOnGoal",
+    "order": 87,
+    "sbmId": "16143",
+    "name": "Player to have 1 or More Shots on Target",
+    "description": "Player to make one or more shots on target in the match",
+    "categories": [
+      "Player",
+      "Shots"
+    ],
+    "preMatch": false,
+    "inPlay": true,
+    "code": "MC12",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC12",
+      "options": [
+        "Home",
+        "Away"
+      ]
+    }
+  },
+  {
+    "id": "PlayerToHave2OrMoreShotsOnGoal",
+    "order": 88,
+    "sbmId": "16144",
+    "name": "Player to have 2 or More Shots on Target",
+    "description": "Player to make two or more shots on target in the match",
+    "categories": [
+      "Player",
+      "Shots"
+    ],
+    "preMatch": false,
+    "inPlay": true,
+    "code": "MC12",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC12",
+      "options": [
+        "Home",
+        "Away"
+      ]
+    }
+  },
+  {
+    "id": "PlayerToHave3OrMoreShotsOnGoal",
+    "order": 89,
+    "sbmId": "16145",
+    "name": "Player to have 3 or More Shots on Target",
+    "description": "Player to make tree or more shots on target in the match",
+    "categories": [
+      "Player",
+      "Shots"
+    ],
+    "preMatch": false,
+    "inPlay": true,
+    "code": "MC12",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC12",
+      "options": [
+        "Home",
+        "Away"
+      ]
+    }
+  },
+  {
+    "id": "PlayerToHave4OrMoreShotsOnGoal",
+    "order": 90,
+    "sbmId": "16146",
+    "name": "Player to have 4 or More Shots on Target",
+    "description": "Player to make four or more shots on target in the match",
+    "categories": [
+      "Player",
+      "Shots"
+    ],
+    "preMatch": false,
+    "inPlay": true,
+    "code": "MC12",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC12",
+      "options": [
+        "Home",
+        "Away"
+      ]
+    }
+  },
+  {
+    "id": "PlayerToHave5OrMoreShotsOnGoal",
+    "order": 91,
+    "sbmId": "16147",
+    "name": "Player to have 5 or More Shots on Target",
+    "description": "Player to make five or more shots on target in the match",
+    "categories": [
+      "Player",
+      "Shots"
+    ],
+    "preMatch": false,
+    "inPlay": true,
+    "code": "MC12",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC12",
+      "options": [
+        "Home",
+        "Away"
+      ]
+    }
+  },
+  {
+    "id": "PlayerToWin1OrMoreFouls",
+    "order": 92,
+    "sbmId": "16175",
+    "name": "Player to Win 1 or More Fouls",
+    "description": "Player to win one or more fouls in the match",
+    "categories": [
+      "Player",
+      "Fouls"
+    ],
+    "preMatch": true,
+    "inPlay": false,
+    "code": "MC12",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC12",
+      "options": [
+        "Home",
+        "Away"
+      ]
+    }
+  },
+  {
+    "id": "PlayerToWin2OrMoreFouls",
+    "order": 93,
+    "sbmId": "16176",
+    "name": "Player to Win 2 or More Fouls",
+    "description": "Player to win two or more fouls in the match",
+    "categories": [
+      "Player",
+      "Fouls"
+    ],
+    "preMatch": true,
+    "inPlay": false,
+    "code": "MC12",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC12",
+      "options": [
+        "Home",
+        "Away"
+      ]
+    }
+  },
+  {
+    "id": "PlayerToWin3OrMoreFouls",
+    "order": 94,
+    "sbmId": "16177",
+    "name": "Player to Win 3 or More Fouls",
+    "description": "Player to win three or more fouls in the match",
+    "categories": [
+      "Player",
+      "Fouls"
+    ],
+    "preMatch": true,
+    "inPlay": false,
+    "code": "MC12",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC12",
+      "options": [
+        "Home",
+        "Away"
+      ]
+    }
+  },
+  {
+    "id": "PlayerToCommit1OrMoreFouls",
+    "order": 95,
+    "sbmId": "16178",
+    "name": "Player to Commit 1 or More Fouls",
+    "description": "Player to commit one or more fouls in the match",
+    "categories": [
+      "Player",
+      "Fouls"
+    ],
+    "preMatch": true,
+    "inPlay": false,
+    "code": "MC12",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC12",
+      "options": [
+        "Home",
+        "Away"
+      ]
+    }
+  },
+  {
+    "id": "PlayerToCommit2OrMoreFouls",
+    "order": 96,
+    "sbmId": "16179",
+    "name": "Player to Commit 2 or More Fouls",
+    "description": "Player to commit two or more fouls in the match",
+    "categories": [
+      "Player",
+      "Fouls"
+    ],
+    "preMatch": true,
+    "inPlay": false,
+    "code": "MC12",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC12",
+      "options": [
+        "Home",
+        "Away"
+      ]
+    }
+  },
+  {
+    "id": "PlayerToCommit3OrMoreFouls",
+    "order": 97,
+    "sbmId": "16180",
+    "name": "Player to Commit 3 or More Fouls",
+    "description": "Player to commit three or more fouls in the match",
+    "categories": [
+      "Player",
+      "Fouls"
+    ],
+    "preMatch": true,
+    "inPlay": false,
+    "code": "MC12",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC12",
+      "options": [
+        "Home",
+        "Away"
+      ]
+    }
+  },
+  {
+    "id": "PlayerToCommit4OrMoreFouls",
+    "order": 98,
+    "sbmId": "16181",
+    "name": "Player to Commit 4 or More Fouls",
+    "description": "Player to commit four or more fouls in the match",
+    "categories": [
+      "Player",
+      "Fouls"
+    ],
+    "preMatch": true,
+    "inPlay": false,
+    "code": "MC12",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC12",
+      "options": [
+        "Home",
+        "Away"
+      ]
+    }
+  },
+  {
+    "id": "PlayerToCommit5OrMoreFouls",
+    "order": 99,
+    "sbmId": "16182",
+    "name": "Player to Commit 5 or More Fouls",
+    "description": "Player to commit five or more fouls in the match",
+    "categories": [
+      "Player",
+      "Fouls"
+    ],
+    "preMatch": true,
+    "inPlay": false,
+    "code": "MC12",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC12",
+      "options": [
+        "Home",
+        "Away"
+      ]
+    }
+  },
+  {
+    "id": "PlayerToScoreAHeader",
+    "order": 100,
+    "sbmId": "7138",
+    "name": "Player To Score A Header",
+    "description": "Player to score a header in the match",
+    "categories": [
+      "Player",
+      "Goals"
+    ],
+    "preMatch": true,
+    "inPlay": false,
+    "code": "MC12",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC12",
+      "options": [
+        "Home",
+        "Away"
+      ]
+    }
+  },
+  {
+    "id": "PlayerToScoreFromOutsideTheBox",
+    "order": 101,
+    "sbmId": "7140",
+    "name": "Player To Score From Outside The Box",
+    "description": "Player to score from outside of the box in the match",
+    "categories": [
+      "Player",
+      "Goals"
+    ],
+    "preMatch": true,
+    "inPlay": false,
+    "code": "MC12",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC12",
+      "options": [
+        "Home",
+        "Away"
+      ]
+    }
+  },
+  {
+    "id": "PlayerToHave1OrMoreShotsOnGoalFromOutsideTheBox",
+    "order": 102,
+    "sbmId": "16184",
+    "name": "Player To Have 1 Or More Shots on Target From Outside The Box",
+    "description": "Player to have one or more shots on target from outside the box in the match",
+    "categories": [
+      "Player",
+      "Shots"
+    ],
+    "preMatch": true,
+    "inPlay": false,
+    "code": "MC12",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC12",
+      "options": [
+        "Home",
+        "Away"
+      ]
+    }
+  },
+  {
+    "id": "PlayerToHave2OrMoreShotsOnGoalFromOutsideTheBox",
+    "order": 103,
+    "sbmId": "16185",
+    "name": "Player To Have 2 Or More Shots on Target From Outside The Box",
+    "description": "Player to have two or more shots on target from outside the box in the match",
+    "categories": [
+      "Player",
+      "Shots"
+    ],
+    "preMatch": true,
+    "inPlay": false,
+    "code": "MC12",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC12",
+      "options": [
+        "Home",
+        "Away"
+      ]
+    }
+  },
+  {
+    "id": "PlayerToHave3OrMoreShotsOnGoalFromOutsideTheBox",
+    "order": 104,
+    "sbmId": "16186",
+    "name": "Player To Have 3 Or More Shots on Target From Outside The Box",
+    "description": "Player to have three or more shots on target from outside the box in the match",
+    "categories": [
+      "Player",
+      "Shots"
+    ],
+    "preMatch": true,
+    "inPlay": false,
+    "code": "MC12",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC12",
+      "options": [
+        "Home",
+        "Away"
+      ]
+    }
+  },
+  {
+    "id": "PlayerToHave1OrMoreHeadedShotsOnGoal",
+    "order": 105,
+    "sbmId": "16187",
+    "name": "Player To Have 1 Or More Headed Shots on Target",
+    "description": "Player to have one or more headed shots in the match",
+    "categories": [
+      "Player",
+      "Shots"
+    ],
+    "preMatch": true,
+    "inPlay": false,
+    "code": "MC12",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC12",
+      "options": [
+        "Home",
+        "Away"
+      ]
+    }
+  },
+  {
+    "id": "PlayerToHave2OrMoreHeadedShotsOnGoal",
+    "order": 106,
+    "sbmId": "16188",
+    "name": "Player To Have 2 Or More Headed Shots on Target",
+    "description": "Player to have two or more headed shots in the match",
+    "categories": [
+      "Player",
+      "Shots"
+    ],
+    "preMatch": true,
+    "inPlay": false,
+    "code": "MC12",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC12",
+      "options": [
+        "Home",
+        "Away"
+      ]
+    }
+  },
+  {
+    "id": "PlayerToHave3OrMoreHeadedShotsOnGoal",
+    "order": 107,
+    "sbmId": "16189",
+    "name": "Player To Have 3 Or More Headed Shots on Target",
+    "description": "Player to have three or more headed shots in the match",
+    "categories": [
+      "Player",
+      "Shots"
+    ],
+    "preMatch": true,
+    "inPlay": false,
+    "code": "MC12",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC12",
+      "options": [
+        "Home",
+        "Away"
+      ]
+    }
+  },
+  {
+    "id": "PlayerToScoreOrAssist",
+    "order": 108,
+    "sbmId": "16183",
+    "name": "Player To Score Or Assist",
+    "description": "Player to score or assist in the match",
+    "categories": [
+      "Player",
+      "Goals",
+      "Assists"
+    ],
+    "preMatch": true,
+    "inPlay": false,
+    "code": "MC12",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC12",
+      "options": [
+        "Home",
+        "Away"
+      ]
+    }
+  },
+  {
+    "id": "TotalGoalkeeperSaves",
+    "order": 109,
+    "sbmId": "16190",
+    "name": "Total Goalkeeper Saves",
+    "description": "Goalkeeper total saves in the match",
+    "categories": [
+      "Player"
+    ],
+    "preMatch": true,
+    "inPlay": false,
+    "code": "MC1212345",
+    "codeSource": "sheet",
+    "template": {
+      "code": "MC1212345",
+      "side1": "Over",
+      "side2": "Under",
+      "lines": [
+        "0.5",
+        "1.5",
+        "2.5",
+        "3.5",
+        "4.5",
+        "5.5",
+        "6.5",
+        "7.5"
+      ],
+      "lineColumns": 2
+    }
+  }
+]
