@@ -17,6 +17,18 @@ This project is linked to GitHub and Vercel.
 2. `git push origin main`
 3. Do **not** use `vercel --prod` / `npx vercel deploy` for routine publishes — git push triggers the Vercel deployment
 
+**Commit author (required for Vercel):** Do **not** change `git config`. For every commit in this repo, set env vars so the author is valid:
+
+```bash
+GIT_AUTHOR_NAME="markbailey92" \
+GIT_AUTHOR_EMAIL="markbailey92@users.noreply.github.com" \
+GIT_COMMITTER_NAME="markbailey92" \
+GIT_COMMITTER_EMAIL="markbailey92@users.noreply.github.com" \
+git commit ...
+```
+
+Never use `mark.bailey@mark.bailey-Mac` — Vercel rejects it.
+
 Exceptions: skip commit/push only if the user explicitly says not to deploy, or if there are no meaningful changes.
 
 If the GitHub ↔ Vercel link is broken, fix with `npx vercel git connect` after checking remotes.
