@@ -6,9 +6,9 @@ const BADGE_BY_ID: Record<string, string> = {
   'la-liga': '/competitions/la-liga.svg',
   seriea: '/competitions/serie-a.svg',
   'serie-a': '/competitions/serie-a.svg',
-  bundesliga: '/competitions/bundesliga.svg',
-  ligue1: '/competitions/ligue-1.svg',
-  'ligue-1': '/competitions/ligue-1.svg',
+  bundesliga: '/competitions/bundesliga.png',
+  ligue1: '/competitions/ligue-1.png',
+  'ligue-1': '/competitions/ligue-1.png',
 }
 
 const BADGE_BY_NAME: Record<string, string> = {
@@ -19,9 +19,9 @@ const BADGE_BY_NAME: Record<string, string> = {
   laliga: '/competitions/la-liga.svg',
   'serie a': '/competitions/serie-a.svg',
   seriea: '/competitions/serie-a.svg',
-  bundesliga: '/competitions/bundesliga.svg',
-  'ligue 1': '/competitions/ligue-1.svg',
-  ligue1: '/competitions/ligue-1.svg',
+  bundesliga: '/competitions/bundesliga.png',
+  'ligue 1': '/competitions/ligue-1.png',
+  ligue1: '/competitions/ligue-1.png',
 }
 
 export function competitionBadgeUrl(
