@@ -122,7 +122,7 @@ export function TemplatesHome({
       {templates.length > 0 && (
         <section className="home-filters" aria-label="Filter templates">
           <div className="cat-tabs-bar home-filter-row">
-            <nav className="cat-tabs" aria-label="Match phase">
+            <nav className="cat-tabs home-filter-phases" aria-label="Match phase">
               <button
                 type="button"
                 className={phaseFilter === 'all' ? 'is-active' : ''}
@@ -141,6 +141,47 @@ export function TemplatesHome({
                 </button>
               ))}
             </nav>
+
+            <nav className="cat-tabs home-filter-competitions" aria-label="Competition">
+              <button
+                type="button"
+                className={competitionFilter === 'all' ? 'is-active' : ''}
+                onClick={() => setCompetitionFilter('all')}
+              >
+                All comps
+              </button>
+              {competitionOptions.map((competition) => (
+                <button
+                  key={competition.id}
+                  type="button"
+                  className={
+                    competitionFilter === competition.id ? 'is-active' : ''
+                  }
+                  onClick={() => setCompetitionFilter(competition.id)}
+                >
+                  {competition.name}
+                </button>
+              ))}
+            </nav>
+
+            <label className="home-filter-select-wrap">
+              <span className="sr-only">Market type</span>
+              <select
+                id="home-market-type"
+                className="home-filter-select"
+                value={marketTypeFilter}
+                onChange={(event) => setMarketTypeFilter(event.target.value)}
+                aria-label="Filter by market type"
+              >
+                <option value="all">All market types</option>
+                {marketTypeOptions.map((name) => (
+                  <option key={name} value={name}>
+                    {name}
+                  </option>
+                ))}
+              </select>
+            </label>
+
             <label className="cat-search">
               <span className="sr-only">Search templates by name</span>
               <input
@@ -151,53 +192,6 @@ export function TemplatesHome({
                 aria-label="Search templates by name"
               />
             </label>
-          </div>
-
-          <div className="home-filter-block">
-            <label className="home-filter-label" htmlFor="home-market-type">
-              Market type
-            </label>
-            <select
-              id="home-market-type"
-              className="home-filter-select"
-              value={marketTypeFilter}
-              onChange={(event) => setMarketTypeFilter(event.target.value)}
-              aria-label="Filter by market type"
-            >
-              <option value="all">All market types</option>
-              {marketTypeOptions.map((name) => (
-                <option key={name} value={name}>
-                  {name}
-                </option>
-              ))}
-            </select>
-          </div>
-
-          <div className="home-filter-block">
-            <p className="home-filter-label">Competition</p>
-            <div className="cat-tabs-bar home-filter-row">
-              <nav className="cat-tabs" aria-label="Competition">
-                <button
-                  type="button"
-                  className={competitionFilter === 'all' ? 'is-active' : ''}
-                  onClick={() => setCompetitionFilter('all')}
-                >
-                  All
-                </button>
-                {competitionOptions.map((competition) => (
-                  <button
-                    key={competition.id}
-                    type="button"
-                    className={
-                      competitionFilter === competition.id ? 'is-active' : ''
-                    }
-                    onClick={() => setCompetitionFilter(competition.id)}
-                  >
-                    {competition.name}
-                  </button>
-                ))}
-              </nav>
-            </div>
           </div>
         </section>
       )}
