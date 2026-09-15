@@ -1837,6 +1837,50 @@ h2 {
   gap: 1.25rem;
 }
 
+.home-filters {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.home-filter-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  min-width: 0;
+}
+
+.home-filter-label {
+  margin: 0;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.home-filter-row {
+  margin-bottom: 0;
+  padding: 0.15rem 0;
+  position: static;
+  background: transparent;
+  backdrop-filter: none;
+}
+
+.home-filter-row .cat-tabs button {
+  background: #fff;
+}
+
+.home-filter-row .cat-tabs button.is-active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.home-filter-row .cat-search input {
+  width: 10rem;
+}
+
 .home-hero {
   display: flex;
   align-items: flex-end;
@@ -2101,6 +2145,10 @@ body.builder-open {
 
   .home-create {
     width: 100%;
+  }
+
+  .home-filter-row .cat-search input {
+    width: 7.5rem;
   }
 
   .targeting {

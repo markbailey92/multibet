@@ -1,7 +1,18 @@
-import { useEffect, useRef, useState, type KeyboardEvent } from 'react'
+import { useEffect, useMemo, useRef, useState, type KeyboardEvent } from 'react'
 import type { SavedMultibet } from '../lib/savedTemplates'
 import { useSheetData } from '../context/SheetDataContext'
-import { MATCH_PHASES } from '../lib/sports'
+import { MATCH_PHASES, type MatchPhase } from '../lib/sports'
+
+type PhaseFilter = 'all' | MatchPhase
+
+function templateMarketTypes(template: SavedMultibet): string[] {
+  const names = new Set<string>()
+  for (const leg of template.legs) {
+    const label = (leg.marketName || leg.detail || leg.marketTypeId || '').trim()
+    if (label) names.add(label)
+  }
+  return [...names]
+}
 
 export function TemplatesHome({
   templates,
@@ -14,9 +25,14 @@ export function TemplatesHome({
   onEdit: (template: SavedMultibet) => void
   onDelete: (id: string) => void
 }) {
-  const { getSport } = useSheetData()
+  const { getSport, sports } = useSheetData()
   const [menuId, setMenuId] = useState<string | null>(null)
   const menuRef = useRef<HTMLDivElement>(null)
+
+  const [phaseFilter, setPhaseFilter] = useState<PhaseFilter>('all')
+  const [marketTypeFilter, setMarketTypeFilter] = useState('all')
+  const [competitionFilter, setCompetitionFilter] = useState('all')
+  const [searchQuery, setSearchQuery] = useState('')
 
   useEffect(() => {
     if (!menuId) return
@@ -36,6 +52,72 @@ export function TemplatesHome({
     }
   }, [menuId])
 
+  const marketTypeOptions = useMemo(() => {
+    const names = new Set<string>()
+    for (const template of templates) {
+      for (const name of templateMarketTypes(template)) names.add(name)
+    }
+    return [...names].sort((a, b) => a.localeCompare(b))
+  }, [templates])
+
+  const competitionOptions = useMemo(() => {
+    const byId = new Map<string, string>()
+    for (const sport of sports) {
+      for (const competition of sport.competitions) {
+        byId.set(competition.id, competition.name)
+      }
+    }
+    for (const template of templates) {
+      const sport = getSport(template.sportId)
+      for (const id of template.competitionIds) {
+        const known = sport.competitions.find((c) => c.id === id)
+        if (known) byId.set(known.id, known.name)
+        else if (!byId.has(id)) byId.set(id, id)
+      }
+    }
+    return [...byId.entries()]
+      .map(([id, name]) => ({ id, name }))
+      .sort((a, b) => a.name.localeCompare(b.name))
+  }, [templates, sports, getSport])
+
+  const filtered = useMemo(() => {
+    const query = searchQuery.trim().toLowerCase()
+    return templates.filter((template) => {
+      if (phaseFilter !== 'all' && !template.phases.includes(phaseFilter)) {
+        return false
+      }
+      if (
+        marketTypeFilter !== 'all' &&
+        !templateMarketTypes(template).includes(marketTypeFilter)
+      ) {
+        return false
+      }
+      if (
+        competitionFilter !== 'all' &&
+        !template.competitionIds.includes(competitionFilter)
+      ) {
+        return false
+      }
+      if (query && !template.name.toLowerCase().includes(query)) {
+        return false
+      }
+      return true
+    })
+  }, [templates, phaseFilter, marketTypeFilter, competitionFilter, searchQuery])
+
+  const filtersActive =
+    phaseFilter !== 'all' ||
+    marketTypeFilter !== 'all' ||
+    competitionFilter !== 'all' ||
+    searchQuery.trim().length > 0
+
+  function clearFilters() {
+    setPhaseFilter('all')
+    setMarketTypeFilter('all')
+    setCompetitionFilter('all')
+    setSearchQuery('')
+  }
+
   return (
     <main className="home">
       <section className="home-hero">
@@ -50,6 +132,94 @@ export function TemplatesHome({
         </button>
       </section>
 
+      {templates.length > 0 && (
+        <section className="home-filters" aria-label="Filter templates">
+          <div className="cat-tabs-bar home-filter-row">
+            <nav className="cat-tabs" aria-label="Match phase">
+              <button
+                type="button"
+                className={phaseFilter === 'all' ? 'is-active' : ''}
+                onClick={() => setPhaseFilter('all')}
+              >
+                All
+              </button>
+              {MATCH_PHASES.map((phase) => (
+                <button
+                  key={phase.id}
+                  type="button"
+                  className={phaseFilter === phase.id ? 'is-active' : ''}
+                  onClick={() => setPhaseFilter(phase.id)}
+                >
+                  {phase.name}
+                </button>
+              ))}
+            </nav>
+            <label className="cat-search">
+              <span className="sr-only">Search templates by name</span>
+              <input
+                type="search"
+                value={searchQuery}
+                onChange={(event) => setSearchQuery(event.target.value)}
+                placeholder="Search"
+                aria-label="Search templates by name"
+              />
+            </label>
+          </div>
+
+          <div className="home-filter-block">
+            <p className="home-filter-label">Market type</p>
+            <div className="cat-tabs-bar home-filter-row">
+              <nav className="cat-tabs" aria-label="Market type">
+                <button
+                  type="button"
+                  className={marketTypeFilter === 'all' ? 'is-active' : ''}
+                  onClick={() => setMarketTypeFilter('all')}
+                >
+                  All
+                </button>
+                {marketTypeOptions.map((name) => (
+                  <button
+                    key={name}
+                    type="button"
+                    className={marketTypeFilter === name ? 'is-active' : ''}
+                    onClick={() => setMarketTypeFilter(name)}
+                  >
+                    {name}
+                  </button>
+                ))}
+              </nav>
+            </div>
+          </div>
+
+          <div className="home-filter-block">
+            <p className="home-filter-label">Competition</p>
+            <div className="cat-tabs-bar home-filter-row">
+              <nav className="cat-tabs" aria-label="Competition">
+                <button
+                  type="button"
+                  className={competitionFilter === 'all' ? 'is-active' : ''}
+                  onClick={() => setCompetitionFilter('all')}
+                >
+                  All
+                </button>
+                {competitionOptions.map((competition) => (
+                  <button
+                    key={competition.id}
+                    type="button"
+                    className={
+                      competitionFilter === competition.id ? 'is-active' : ''
+                    }
+                    onClick={() => setCompetitionFilter(competition.id)}
+                  >
+                    {competition.name}
+                  </button>
+                ))}
+              </nav>
+            </div>
+          </div>
+        </section>
+      )}
+
       {templates.length === 0 ? (
         <div className="home-empty">
           <p>No templates yet.</p>
@@ -58,9 +228,22 @@ export function TemplatesHome({
             Create your first template
           </button>
         </div>
+      ) : filtered.length === 0 ? (
+        <div className="home-empty">
+          <p>No templates match these filters.</p>
+          {filtersActive && (
+            <button
+              type="button"
+              className="home-create home-create-secondary"
+              onClick={clearFilters}
+            >
+              Clear filters
+            </button>
+          )}
+        </div>
       ) : (
         <ul className="home-list">
-          {templates.map((template) => {
+          {filtered.map((template) => {
             const sport = getSport(template.sportId)
             const selectedPhases = MATCH_PHASES.filter((phase) =>
               template.phases.includes(phase.id),
