@@ -154,28 +154,23 @@ export function TemplatesHome({
           </div>
 
           <div className="home-filter-block">
-            <p className="home-filter-label">Market type</p>
-            <div className="cat-tabs-bar home-filter-row">
-              <nav className="cat-tabs" aria-label="Market type">
-                <button
-                  type="button"
-                  className={marketTypeFilter === 'all' ? 'is-active' : ''}
-                  onClick={() => setMarketTypeFilter('all')}
-                >
-                  All
-                </button>
-                {marketTypeOptions.map((name) => (
-                  <button
-                    key={name}
-                    type="button"
-                    className={marketTypeFilter === name ? 'is-active' : ''}
-                    onClick={() => setMarketTypeFilter(name)}
-                  >
-                    {name}
-                  </button>
-                ))}
-              </nav>
-            </div>
+            <label className="home-filter-label" htmlFor="home-market-type">
+              Market type
+            </label>
+            <select
+              id="home-market-type"
+              className="home-filter-select"
+              value={marketTypeFilter}
+              onChange={(event) => setMarketTypeFilter(event.target.value)}
+              aria-label="Filter by market type"
+            >
+              <option value="all">All market types</option>
+              {marketTypeOptions.map((name) => (
+                <option key={name} value={name}>
+                  {name}
+                </option>
+              ))}
+            </select>
           </div>
 
           <div className="home-filter-block">
