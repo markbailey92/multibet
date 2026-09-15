@@ -32,7 +32,7 @@ function leg(
 const SEED_DEFS: SeedDef[] = [
   {
     id: 'seed-pm-01',
-    name: 'Pre-Match · Home favourites',
+    name: 'Home favourites',
     phase: 'preMatch',
     legs: [
       { marketTypeId: 'MatchResult', marketName: 'Match Result', selection: 'Home' },
@@ -42,7 +42,7 @@ const SEED_DEFS: SeedDef[] = [
   },
   {
     id: 'seed-pm-02',
-    name: 'Pre-Match · Away underdogs',
+    name: 'Away underdogs',
     phase: 'preMatch',
     legs: [
       { marketTypeId: 'MatchResult', marketName: 'Match Result', selection: 'Away' },
@@ -52,7 +52,7 @@ const SEED_DEFS: SeedDef[] = [
   },
   {
     id: 'seed-pm-03',
-    name: 'Pre-Match · Draw specials',
+    name: 'Draw specials',
     phase: 'preMatch',
     legs: [
       { marketTypeId: 'MatchResult', marketName: 'Match Result', selection: 'Draw' },
@@ -62,7 +62,7 @@ const SEED_DEFS: SeedDef[] = [
   },
   {
     id: 'seed-pm-04',
-    name: 'Pre-Match · Goals & BTTS',
+    name: 'Goals & BTTS',
     phase: 'preMatch',
     legs: [
       { marketTypeId: 'BothTeamsToScore', marketName: 'Both Teams To Score', selection: 'Yes' },
@@ -72,7 +72,7 @@ const SEED_DEFS: SeedDef[] = [
   },
   {
     id: 'seed-pm-05',
-    name: 'Pre-Match · Half-time stack',
+    name: 'Half-time stack',
     phase: 'preMatch',
     legs: [
       { marketTypeId: 'HalfTimeResult', marketName: 'Half Time Result', selection: 'Home' },
@@ -82,7 +82,7 @@ const SEED_DEFS: SeedDef[] = [
   },
   {
     id: 'seed-pm-06',
-    name: 'Pre-Match · Double chance cover',
+    name: 'Double chance cover',
     phase: 'preMatch',
     legs: [
       { marketTypeId: 'DoubleChance', marketName: 'Double Chance', selection: 'Home or Draw' },
@@ -92,7 +92,7 @@ const SEED_DEFS: SeedDef[] = [
   },
   {
     id: 'seed-pm-07',
-    name: 'Pre-Match · Correct score lean',
+    name: 'Correct score lean',
     phase: 'preMatch',
     legs: [
       { marketTypeId: 'CorrectScore', marketName: 'Correct Score', selection: 'Most Competitive' },
@@ -102,7 +102,7 @@ const SEED_DEFS: SeedDef[] = [
   },
   {
     id: 'seed-pm-08',
-    name: 'Pre-Match · Team totals',
+    name: 'Team totals',
     phase: 'preMatch',
     legs: [
       { marketTypeId: 'HomeTeamTotalGoalsOverUnder', marketName: 'Home Team Total Goals Over/Under', selection: 'Over 1.5' },
@@ -112,7 +112,7 @@ const SEED_DEFS: SeedDef[] = [
   },
   {
     id: 'seed-pm-09',
-    name: 'Pre-Match · Low-scoring EPL',
+    name: 'Low-scoring EPL',
     phase: 'preMatch',
     legs: [
       { marketTypeId: 'TotalGoalsOverUnder', marketName: 'Total Goals Over/Under', selection: 'Under 2.5' },
@@ -122,7 +122,7 @@ const SEED_DEFS: SeedDef[] = [
   },
   {
     id: 'seed-pm-10',
-    name: 'Pre-Match · High-scoring openers',
+    name: 'High-scoring openers',
     phase: 'preMatch',
     legs: [
       { marketTypeId: 'TotalGoalsOverUnder', marketName: 'Total Goals Over/Under', selection: 'Over 3.5' },
@@ -133,7 +133,7 @@ const SEED_DEFS: SeedDef[] = [
   },
   {
     id: 'seed-pm-11',
-    name: 'Pre-Match · Anytime scorer combo',
+    name: 'Anytime scorer combo',
     phase: 'preMatch',
     legs: [
       { marketTypeId: 'AnytimeGoalscorer', marketName: 'Anytime Goalscorer', selection: 'Most Competitive' },
@@ -143,7 +143,7 @@ const SEED_DEFS: SeedDef[] = [
   },
   {
     id: 'seed-pm-12',
-    name: 'Pre-Match · Second-half focus',
+    name: 'Second-half focus',
     phase: 'preMatch',
     legs: [
       { marketTypeId: 'SecondHalfTotalGoalsOverUnder', marketName: 'Second Half Total Goals Over/Under', selection: 'Over 1.5' },
@@ -153,7 +153,7 @@ const SEED_DEFS: SeedDef[] = [
   },
   {
     id: 'seed-pm-13',
-    name: 'Pre-Match · Even totals',
+    name: 'Even totals',
     phase: 'preMatch',
     legs: [
       { marketTypeId: 'OddOrEvenTotal', marketName: 'Odd Or Even Total', selection: 'Even' },
@@ -163,7 +163,7 @@ const SEED_DEFS: SeedDef[] = [
   },
   {
     id: 'seed-pm-14',
-    name: 'Pre-Match · Away double',
+    name: 'Away double',
     phase: 'preMatch',
     legs: [
       { marketTypeId: 'MatchResult', marketName: 'Match Result', selection: 'Away' },
@@ -174,7 +174,7 @@ const SEED_DEFS: SeedDef[] = [
   },
   {
     id: 'seed-pm-15',
-    name: 'Pre-Match · Classic accumulator',
+    name: 'Classic accumulator',
     phase: 'preMatch',
     legs: [
       { marketTypeId: 'MatchResult', marketName: 'Match Result', selection: 'Home' },
@@ -186,7 +186,7 @@ const SEED_DEFS: SeedDef[] = [
   },
   {
     id: 'seed-ip-01',
-    name: 'In-Play · Live home pressure',
+    name: 'Live home pressure',
     phase: 'inPlay',
     legs: [
       { marketTypeId: 'MatchResult', marketName: 'Match Result', selection: 'Home' },
@@ -196,7 +196,7 @@ const SEED_DEFS: SeedDef[] = [
   },
   {
     id: 'seed-ip-02',
-    name: 'In-Play · Next goal race',
+    name: 'Next goal race',
     phase: 'inPlay',
     legs: [
       { marketTypeId: 'TotalGoalsOverUnder', marketName: 'Total Goals Over/Under', selection: 'Over 2.5' },
@@ -206,7 +206,7 @@ const SEED_DEFS: SeedDef[] = [
   },
   {
     id: 'seed-ip-03',
-    name: 'In-Play · Protect the lead',
+    name: 'Protect the lead',
     phase: 'inPlay',
     legs: [
       { marketTypeId: 'DoubleChance', marketName: 'Double Chance', selection: 'Home or Draw' },
@@ -216,7 +216,7 @@ const SEED_DEFS: SeedDef[] = [
   },
   {
     id: 'seed-ip-04',
-    name: 'In-Play · Comeback away',
+    name: 'Comeback away',
     phase: 'inPlay',
     legs: [
       { marketTypeId: 'MatchResult', marketName: 'Match Result', selection: 'Away' },
@@ -226,7 +226,7 @@ const SEED_DEFS: SeedDef[] = [
   },
   {
     id: 'seed-ip-05',
-    name: 'In-Play · Half-time board',
+    name: 'Half-time board',
     phase: 'inPlay',
     legs: [
       { marketTypeId: 'HalfTimeResult', marketName: 'Half Time Result', selection: 'Draw' },
@@ -236,7 +236,7 @@ const SEED_DEFS: SeedDef[] = [
   },
   {
     id: 'seed-ip-06',
-    name: 'In-Play · Second-half goals',
+    name: 'Second-half goals',
     phase: 'inPlay',
     legs: [
       { marketTypeId: 'SecondHalfTotalGoalsOverUnder', marketName: 'Second Half Total Goals Over/Under', selection: 'Over 0.5' },
@@ -246,7 +246,7 @@ const SEED_DEFS: SeedDef[] = [
   },
   {
     id: 'seed-ip-07',
-    name: 'In-Play · Late goals',
+    name: 'Late goals',
     phase: 'inPlay',
     legs: [
       { marketTypeId: 'TotalGoalsOverUnder', marketName: 'Total Goals Over/Under', selection: 'Over 3.5' },
@@ -256,7 +256,7 @@ const SEED_DEFS: SeedDef[] = [
   },
   {
     id: 'seed-ip-08',
-    name: 'In-Play · Low tempo',
+    name: 'Low tempo',
     phase: 'inPlay',
     legs: [
       { marketTypeId: 'TotalGoalsOverUnder', marketName: 'Total Goals Over/Under', selection: 'Under 2.5' },
@@ -266,7 +266,7 @@ const SEED_DEFS: SeedDef[] = [
   },
   {
     id: 'seed-ip-09',
-    name: 'In-Play · Home or draw live',
+    name: 'Home or draw live',
     phase: 'inPlay',
     legs: [
       { marketTypeId: 'DoubleChance', marketName: 'Double Chance', selection: 'Home or Draw' },
@@ -276,7 +276,7 @@ const SEED_DEFS: SeedDef[] = [
   },
   {
     id: 'seed-ip-10',
-    name: 'In-Play · Correct score chase',
+    name: 'Correct score chase',
     phase: 'inPlay',
     legs: [
       { marketTypeId: 'CorrectScore', marketName: 'Correct Score', selection: 'Most Competitive' },
@@ -286,7 +286,7 @@ const SEED_DEFS: SeedDef[] = [
   },
   {
     id: 'seed-ip-11',
-    name: 'In-Play · Away team totals',
+    name: 'Away team totals',
     phase: 'inPlay',
     legs: [
       { marketTypeId: 'AwayTeamTotalGoalsOverUnder', marketName: 'Away Team Total Goals Over/Under', selection: 'Over 0.5' },
@@ -296,7 +296,7 @@ const SEED_DEFS: SeedDef[] = [
   },
   {
     id: 'seed-ip-12',
-    name: 'In-Play · Even finish',
+    name: 'Even finish',
     phase: 'inPlay',
     legs: [
       { marketTypeId: 'OddOrEvenTotal', marketName: 'Odd Or Even Total', selection: 'Even' },
@@ -306,7 +306,7 @@ const SEED_DEFS: SeedDef[] = [
   },
   {
     id: 'seed-ip-13',
-    name: 'In-Play · Half-time home',
+    name: 'Half-time home',
     phase: 'inPlay',
     legs: [
       { marketTypeId: 'HalfTimeResult', marketName: 'Half Time Result', selection: 'Home' },
@@ -316,7 +316,7 @@ const SEED_DEFS: SeedDef[] = [
   },
   {
     id: 'seed-ip-14',
-    name: 'In-Play · Second-half correct score',
+    name: 'Second-half correct score',
     phase: 'inPlay',
     legs: [
       { marketTypeId: 'SecondHalfCorrectScore', marketName: 'Second Half Correct Score', selection: 'Most Competitive' },
@@ -326,7 +326,7 @@ const SEED_DEFS: SeedDef[] = [
   },
   {
     id: 'seed-ip-15',
-    name: 'In-Play · Full live accumulator',
+    name: 'Full live accumulator',
     phase: 'inPlay',
     legs: [
       { marketTypeId: 'MatchResult', marketName: 'Match Result', selection: 'Home' },

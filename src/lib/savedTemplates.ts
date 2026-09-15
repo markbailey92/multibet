@@ -8,6 +8,7 @@ import {
 
 const SAVED_KEY = 'multibet.saved.templates.v1'
 const SEED_MERGED_KEY = 'multibet.seed.templates.merged.v1'
+const SEED_NAMES_KEY = 'multibet.seed.templates.names.v2'
 
 export type SavedMultibet = {
   id: string
@@ -91,23 +92,33 @@ function writeSavedTemplates(items: SavedMultibet[]) {
 /** Ensures the soccer seed pack is present (once per browser). Seeds are soccer-only and single-phase. */
 export function ensureSeedTemplates(): SavedMultibet[] {
   try {
-    if (localStorage.getItem(SEED_MERGED_KEY) === '1') {
-      return readSavedTemplates()
+    if (localStorage.getItem(SEED_MERGED_KEY) !== '1') {
+      const existing = readSavedTemplates()
+      const existingIds = new Set(existing.map((item) => item.id))
+      const missingSeeds = buildSeedTemplates().filter(
+        (seed) => !existingIds.has(seed.id),
+      )
+      writeSavedTemplates([...missingSeeds, ...existing].slice(0, 80))
+      localStorage.setItem(SEED_MERGED_KEY, '1')
     }
   } catch {
     /* ignore */
   }
 
-  const existing = readSavedTemplates()
-  const existingIds = new Set(existing.map((item) => item.id))
-  const missingSeeds = buildSeedTemplates().filter(
-    (seed) => !existingIds.has(seed.id),
-  )
-  const merged = [...missingSeeds, ...existing].slice(0, 80)
-  writeSavedTemplates(merged)
-
   try {
-    localStorage.setItem(SEED_MERGED_KEY, '1')
+    if (localStorage.getItem(SEED_NAMES_KEY) !== '1') {
+      const nameById = new Map(
+        buildSeedTemplates().map((seed) => [seed.id, seed.name]),
+      )
+      const items = readSavedTemplates().map((item) => {
+        const nextName = nameById.get(item.id)
+        return nextName && nextName !== item.name
+          ? { ...item, name: nextName }
+          : item
+      })
+      writeSavedTemplates(items)
+      localStorage.setItem(SEED_NAMES_KEY, '1')
+    }
   } catch {
     /* ignore */
   }
