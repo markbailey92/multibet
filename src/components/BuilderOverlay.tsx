@@ -160,11 +160,10 @@ export function BuilderOverlay({
   }
 
   function togglePhase(id: MatchPhase) {
-    setPhases((current) =>
-      current.includes(id)
-        ? current.filter((phase) => phase !== id)
-        : [...current, id],
-    )
+    setPhases((current) => {
+      if (current.length === 1 && current[0] === id) return current
+      return [id]
+    })
   }
 
   return (
@@ -306,7 +305,12 @@ export function BuilderOverlay({
                   })}
                 </div>
                 {phases.length === 0 && (
-                  <p className="targeting-hint">Select at least one phase.</p>
+                  <p className="targeting-hint">Select a phase.</p>
+                )}
+                {phases.length > 1 && (
+                  <p className="targeting-hint">
+                    Templates must be Pre-Match or In Play, not both.
+                  </p>
                 )}
               </div>
 

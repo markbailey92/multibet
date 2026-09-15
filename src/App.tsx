@@ -5,13 +5,12 @@ import { BuilderOverlay } from './components/BuilderOverlay'
 import { LegsProvider, useLegs } from './context/LegsContext'
 import {
   deleteSavedTemplate,
-  readSavedTemplates,
+  ensureSeedTemplates,
   type SavedMultibet,
 } from './lib/savedTemplates'
 import { SheetDataProvider, useSheetData } from './context/SheetDataContext'
 import {
   allCompetitionIdsFor,
-  allMatchPhases,
   type MatchPhase,
   type SportId,
 } from './lib/sports'
@@ -29,12 +28,12 @@ function AppShell() {
   const { sports } = useSheetData()
   const { loadLegs, clearLegs } = useLegs()
   const [templates, setTemplates] = useState<SavedMultibet[]>(() =>
-    readSavedTemplates(),
+    ensureSeedTemplates(),
   )
   const [builder, setBuilder] = useState<BuilderSession | null>(null)
 
   const refreshList = useCallback(() => {
-    setTemplates(readSavedTemplates())
+    setTemplates(ensureSeedTemplates())
   }, [])
 
   useEffect(() => {
@@ -52,7 +51,7 @@ function AppShell() {
       name: 'Untitled template',
       sportId: 'soccer',
       competitionIds: allCompetitionIdsFor(sports, 'soccer'),
-      phases: allMatchPhases(),
+      phases: ['preMatch'],
     })
   }
 

@@ -1,12 +1,13 @@
 import type { Leg } from '../types'
+import { buildSeedTemplates, SEED_TEMPLATE_IDS } from './seedTemplates'
 import {
   allCompetitionIds,
-  allMatchPhases,
   type MatchPhase,
   type SportId,
 } from './sports'
 
 const SAVED_KEY = 'multibet.saved.templates.v1'
+const SEED_MERGED_KEY = 'multibet.seed.templates.merged.v1'
 
 export type SavedMultibet = {
   id: string
@@ -20,11 +21,13 @@ export type SavedMultibet = {
 }
 
 function migratePhases(raw: unknown): MatchPhase[] {
-  if (!Array.isArray(raw)) return allMatchPhases()
+  if (!Array.isArray(raw)) return ['preMatch']
   const phases = raw.filter(
     (phase): phase is MatchPhase => phase === 'preMatch' || phase === 'inPlay',
   )
-  return phases.length > 0 ? phases : allMatchPhases()
+  if (phases.length === 0) return ['preMatch']
+  // Templates are single-phase only (pre-match XOR in-play).
+  return [phases[0]]
 }
 
 function migrate(raw: unknown): SavedMultibet | null {
@@ -85,6 +88,37 @@ function writeSavedTemplates(items: SavedMultibet[]) {
   localStorage.setItem(SAVED_KEY, JSON.stringify(items))
 }
 
+/** Ensures the soccer seed pack is present (once per browser). Seeds are soccer-only and single-phase. */
+export function ensureSeedTemplates(): SavedMultibet[] {
+  try {
+    if (localStorage.getItem(SEED_MERGED_KEY) === '1') {
+      return readSavedTemplates()
+    }
+  } catch {
+    /* ignore */
+  }
+
+  const existing = readSavedTemplates()
+  const existingIds = new Set(existing.map((item) => item.id))
+  const missingSeeds = buildSeedTemplates().filter(
+    (seed) => !existingIds.has(seed.id),
+  )
+  const merged = [...missingSeeds, ...existing].slice(0, 80)
+  writeSavedTemplates(merged)
+
+  try {
+    localStorage.setItem(SEED_MERGED_KEY, '1')
+  } catch {
+    /* ignore */
+  }
+
+  return readSavedTemplates()
+}
+
+export function isSeedTemplateId(id: string): boolean {
+  return SEED_TEMPLATE_IDS.has(id)
+}
+
 export function upsertSavedTemplate(
   input: {
     id?: string
@@ -105,14 +139,14 @@ export function upsertSavedTemplate(
     name: (input.name?.trim() || existing?.name || defaultName(input.legs, now)).trim(),
     sportId: input.sportId,
     competitionIds: [...input.competitionIds],
-    phases: input.phases.length > 0 ? [...input.phases] : allMatchPhases(),
+    phases: input.phases.length === 1 ? [...input.phases] : [input.phases[0] ?? 'preMatch'],
     savedAt: existing?.savedAt ?? now,
     updatedAt: now,
     legs: structuredClone(input.legs),
   }
 
   const rest = readSavedTemplates().filter((item) => item.id !== entry.id)
-  writeSavedTemplates([entry, ...rest].slice(0, 50))
+  writeSavedTemplates([entry, ...rest].slice(0, 80))
   return entry
 }
 
