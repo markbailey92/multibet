@@ -61,24 +61,11 @@ export function TemplatesHome({
   }, [templates])
 
   const competitionOptions = useMemo(() => {
-    const byId = new Map<string, string>()
-    for (const sport of sports) {
-      for (const competition of sport.competitions) {
-        byId.set(competition.id, competition.name)
-      }
-    }
-    for (const template of templates) {
-      const sport = getSport(template.sportId)
-      for (const id of template.competitionIds) {
-        const known = sport.competitions.find((c) => c.id === id)
-        if (known) byId.set(known.id, known.name)
-        else if (!byId.has(id)) byId.set(id, id)
-      }
-    }
-    return [...byId.entries()]
-      .map(([id, name]) => ({ id, name }))
+    const soccer = sports.find((sport) => sport.id === 'soccer') ?? getSport('soccer')
+    return soccer.competitions
+      .map((competition) => ({ id: competition.id, name: competition.name }))
       .sort((a, b) => a.name.localeCompare(b.name))
-  }, [templates, sports, getSport])
+  }, [sports, getSport])
 
   const filtered = useMemo(() => {
     const query = searchQuery.trim().toLowerCase()
