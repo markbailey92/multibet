@@ -1991,6 +1991,7 @@ h2 {
 .home-table-wrap {
   width: 100%;
   overflow-x: auto;
+  overflow-y: visible;
   border: 1px solid var(--line);
   border-radius: 12px;
   background: #fff;
@@ -2037,6 +2038,11 @@ h2 {
   outline: none;
 }
 
+.home-table-row:has(.home-card-menu-dropdown) {
+  position: relative;
+  z-index: 80;
+}
+
 .home-table-name {
   min-width: 11rem;
 }
@@ -2063,10 +2069,17 @@ h2 {
 .home-table-actions {
   width: 2.5rem;
   text-align: right;
+  position: relative;
+  z-index: 1;
+}
+
+.home-table-actions:has(.home-card-menu-dropdown) {
+  z-index: 90;
 }
 
 .home-table-actions .home-card-menu-dropdown {
   right: 0;
+  z-index: 100;
 }
 
 .home-card {
@@ -2113,6 +2126,10 @@ h2 {
   z-index: 2;
 }
 
+.home-card-menu:has(.home-card-menu-dropdown) {
+  z-index: 100;
+}
+
 .home-card-menu-trigger {
   border: 1px solid transparent;
   background: transparent;
@@ -2139,7 +2156,7 @@ h2 {
   position: absolute;
   top: calc(100% + 0.25rem);
   right: 0;
-  z-index: 20;
+  z-index: 100;
   min-width: 8.5rem;
   padding: 0.35rem;
   border: 1px solid var(--line);
