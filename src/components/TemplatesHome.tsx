@@ -85,8 +85,12 @@ export function TemplatesHome({
       ) {
         return false
       }
-      if (query && !template.name.toLowerCase().includes(query)) {
-        return false
+      if (query) {
+        const nameMatch = template.name.toLowerCase().includes(query)
+        const marketMatch = templateMarketTypes(template).some((market) =>
+          market.toLowerCase().includes(query),
+        )
+        if (!nameMatch && !marketMatch) return false
       }
       return true
     })
@@ -183,13 +187,13 @@ export function TemplatesHome({
             </label>
 
             <label className="cat-search">
-              <span className="sr-only">Search templates by name</span>
+              <span className="sr-only">Search templates by name or market type</span>
               <input
                 type="search"
                 value={searchQuery}
                 onChange={(event) => setSearchQuery(event.target.value)}
                 placeholder="Search"
-                aria-label="Search templates by name"
+                aria-label="Search templates by name or market type"
               />
             </label>
           </div>
