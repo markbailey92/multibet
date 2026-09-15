@@ -5,8 +5,27 @@ import { MATCH_PHASES, type MatchPhase } from '../lib/sports'
 
 type PhaseFilter = 'all' | MatchPhase
 type HomeView = 'cards' | 'table'
+type SortKey =
+  | 'name'
+  | 'sport'
+  | 'phase'
+  | 'legs'
+  | 'markets'
+  | 'competitions'
+  | 'updated'
+type SortDir = 'asc' | 'desc'
 
 const VIEW_STORAGE_KEY = 'multibet.home.view.v1'
+
+const SORT_COLUMNS: { key: SortKey; label: string }[] = [
+  { key: 'name', label: 'Name' },
+  { key: 'sport', label: 'Sport' },
+  { key: 'phase', label: 'Phase' },
+  { key: 'legs', label: 'Legs' },
+  { key: 'markets', label: 'Market types' },
+  { key: 'competitions', label: 'Competitions' },
+  { key: 'updated', label: 'Updated' },
+]
 
 function readHomeView(): HomeView {
   try {
@@ -65,6 +84,8 @@ export function TemplatesHome({
   const [marketTypeFilter, setMarketTypeFilter] = useState('all')
   const [competitionFilter, setCompetitionFilter] = useState('all')
   const [searchQuery, setSearchQuery] = useState('')
+  const [sortKey, setSortKey] = useState<SortKey>('updated')
+  const [sortDir, setSortDir] = useState<SortDir>('desc')
 
   useEffect(() => {
     try {
@@ -136,6 +157,60 @@ export function TemplatesHome({
     })
   }, [templates, phaseFilter, marketTypeFilter, competitionFilter, searchQuery])
 
+  const sorted = useMemo(() => {
+    const list = [...filtered]
+    const dir = sortDir === 'asc' ? 1 : -1
+
+    list.sort((a, b) => {
+      const sportA = getSport(a.sportId)
+      const sportB = getSport(b.sportId)
+      const compsA = sportA.competitions.filter((c) => a.competitionIds.includes(c.id))
+      const compsB = sportB.competitions.filter((c) => b.competitionIds.includes(c.id))
+      const compsLabel = (
+        sportComps: typeof compsA,
+        allCount: number,
+      ) => {
+        if (sportComps.length === 0) return ''
+        if (sportComps.length === allCount) return 'All'
+        return sportComps.map((c) => c.name).join(', ')
+      }
+
+      let cmp = 0
+      switch (sortKey) {
+        case 'name':
+          cmp = a.name.localeCompare(b.name)
+          break
+        case 'sport':
+          cmp = sportA.name.localeCompare(sportB.name)
+          break
+        case 'phase':
+          cmp = formatPhase(a).localeCompare(formatPhase(b))
+          break
+        case 'legs':
+          cmp = a.legs.length - b.legs.length
+          break
+        case 'markets':
+          cmp = templateMarketTypes(a)
+            .join(', ')
+            .localeCompare(templateMarketTypes(b).join(', '))
+          break
+        case 'competitions':
+          cmp = compsLabel(compsA, sportA.competitions.length).localeCompare(
+            compsLabel(compsB, sportB.competitions.length),
+          )
+          break
+        case 'updated':
+          cmp =
+            new Date(a.updatedAt).getTime() - new Date(b.updatedAt).getTime()
+          break
+      }
+      if (cmp === 0) cmp = a.name.localeCompare(b.name)
+      return cmp * dir
+    })
+
+    return list
+  }, [filtered, sortKey, sortDir, getSport])
+
   const filtersActive =
     phaseFilter !== 'all' ||
     marketTypeFilter !== 'all' ||
@@ -147,6 +222,15 @@ export function TemplatesHome({
     setMarketTypeFilter('all')
     setCompetitionFilter('all')
     setSearchQuery('')
+  }
+
+  function toggleSort(key: SortKey) {
+    if (sortKey === key) {
+      setSortDir((current) => (current === 'asc' ? 'desc' : 'asc'))
+      return
+    }
+    setSortKey(key)
+    setSortDir(key === 'updated' || key === 'legs' ? 'desc' : 'asc')
   }
 
   function confirmDelete(template: SavedMultibet) {
@@ -295,20 +379,40 @@ export function TemplatesHome({
           <table className="home-table">
             <thead>
               <tr>
-                <th scope="col">Name</th>
-                <th scope="col">Sport</th>
-                <th scope="col">Phase</th>
-                <th scope="col">Legs</th>
-                <th scope="col">Market types</th>
-                <th scope="col">Competitions</th>
-                <th scope="col">Updated</th>
+                {SORT_COLUMNS.map((column) => {
+                  const active = sortKey === column.key
+                  return (
+                    <th
+                      key={column.key}
+                      scope="col"
+                      aria-sort={
+                        active
+                          ? sortDir === 'asc'
+                            ? 'ascending'
+                            : 'descending'
+                          : 'none'
+                      }
+                    >
+                      <button
+                        type="button"
+                        className={`home-table-sort ${active ? 'is-active' : ''}`}
+                        onClick={() => toggleSort(column.key)}
+                      >
+                        <span>{column.label}</span>
+                        <span className="home-table-sort-icon" aria-hidden>
+                          {active ? (sortDir === 'asc' ? '↑' : '↓') : '↕'}
+                        </span>
+                      </button>
+                    </th>
+                  )
+                })}
                 <th scope="col">
                   <span className="sr-only">Actions</span>
                 </th>
               </tr>
             </thead>
             <tbody>
-              {filtered.map((template) => {
+              {sorted.map((template) => {
                 const sport = getSport(template.sportId)
                 const selectedCompetitions = sport.competitions.filter((competition) =>
                   template.competitionIds.includes(competition.id),

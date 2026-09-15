@@ -2014,10 +2014,42 @@ h2 {
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--ink-muted);
-  padding: 0.7rem 0.85rem;
+  padding: 0.45rem 0.45rem 0.45rem 0.55rem;
   border-bottom: 1px solid var(--line);
   background: var(--bg-elevated);
   white-space: nowrap;
+}
+
+.home-table-sort {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border: none;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  padding: 0.3rem 0.35rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.home-table-sort:hover,
+.home-table-sort.is-active {
+  color: var(--ink);
+  background: color-mix(in srgb, var(--accent-soft) 55%, #fff);
+}
+
+.home-table-sort-icon {
+  font-size: 0.72rem;
+  opacity: 0.55;
+  line-height: 1;
+}
+
+.home-table-sort.is-active .home-table-sort-icon {
+  opacity: 1;
+  color: var(--accent);
 }
 
 .home-table td {
