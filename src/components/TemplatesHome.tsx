@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState, type KeyboardEvent } from 'react'
 import type { SavedMultibet } from '../lib/savedTemplates'
 import { useSheetData } from '../context/SheetDataContext'
 import { MATCH_PHASES, type MatchPhase } from '../lib/sports'
+import { CompetitionBadge } from './CompetitionBadge'
 
 type PhaseFilter = 'all' | MatchPhase
 type HomeView = 'cards' | 'table'
@@ -311,12 +312,18 @@ export function TemplatesHome({
                 <button
                   key={competition.id}
                   type="button"
-                  className={
+                  className={`home-filter-comp-btn ${
                     competitionFilter === competition.id ? 'is-active' : ''
-                  }
+                  }`}
+                  title={competition.name}
+                  aria-label={competition.name}
                   onClick={() => setCompetitionFilter(competition.id)}
                 >
-                  {competition.name}
+                  <CompetitionBadge
+                    id={competition.id}
+                    name={competition.name}
+                    size="sm"
+                  />
                 </button>
               ))}
             </nav>
@@ -449,11 +456,23 @@ export function TemplatesHome({
                       {markets.length === 0 ? '—' : markets.join(', ')}
                     </td>
                     <td className="home-table-comps">
-                      {selectedCompetitions.length === 0
-                        ? '—'
-                        : selectedCompetitions.length === sport.competitions.length
-                          ? 'All'
-                          : selectedCompetitions.map((c) => c.name).join(', ')}
+                      {selectedCompetitions.length === 0 ? (
+                        '—'
+                      ) : selectedCompetitions.length ===
+                        sport.competitions.length ? (
+                        <span className="home-table-all-comps">All</span>
+                      ) : (
+                        <span className="competition-badge-row">
+                          {selectedCompetitions.map((competition) => (
+                            <CompetitionBadge
+                              key={competition.id}
+                              id={competition.id}
+                              name={competition.name}
+                              size="sm"
+                            />
+                          ))}
+                        </span>
+                      )}
                     </td>
                     <td className="home-table-date">
                       {formatUpdated(template.updatedAt)}
@@ -627,8 +646,12 @@ export function TemplatesHome({
                       <ul className="betslip-competitions">
                         {selectedCompetitions.map((competition) => (
                           <li key={competition.id}>
-                            <span className="betslip-competition">
-                              {competition.name}
+                            <span className="betslip-competition betslip-competition-badge">
+                              <CompetitionBadge
+                                id={competition.id}
+                                name={competition.name}
+                                size="sm"
+                              />
                             </span>
                           </li>
                         ))}

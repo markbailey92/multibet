@@ -3,6 +3,7 @@ import { AppHeader } from './AppHeader'
 import { GroupedMarketBlock, MarketBlock } from './Templates'
 import { TemplateGallery } from './TemplateGallery'
 import { Betslip } from './Betslip'
+import { CompetitionBadge } from './CompetitionBadge'
 import { useSheetData } from '../context/SheetDataContext'
 import {
   MATCH_PHASES,
@@ -332,18 +333,24 @@ export function BuilderOverlay({
 
               <div className="targeting-row">
                 <p className="targeting-label">Competitions</p>
-                <div className="targeting-pills" role="group" aria-label="Competitions">
+                <div className="targeting-pills targeting-pills-badges" role="group" aria-label="Competitions">
                   {sport.competitions.map((competition) => {
                     const selected = competitionIds.includes(competition.id)
                     return (
                       <button
                         key={competition.id}
                         type="button"
-                        className={selected ? 'is-active' : ''}
+                        className={`targeting-comp-btn ${selected ? 'is-active' : ''}`}
                         aria-pressed={selected}
+                        title={competition.name}
+                        aria-label={competition.name}
                         onClick={() => toggleCompetition(competition.id)}
                       >
-                        {competition.name}
+                        <CompetitionBadge
+                          id={competition.id}
+                          name={competition.name}
+                          size="md"
+                        />
                       </button>
                     )
                   })}

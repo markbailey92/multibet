@@ -10,6 +10,7 @@ import {
 } from '../lib/templateExport'
 import { useSheetData } from '../context/SheetDataContext'
 import { MATCH_PHASES, type MatchPhase, type SportId } from '../lib/sports'
+import { CompetitionBadge } from './CompetitionBadge'
 
 export function Betslip({
   templateId,
@@ -183,7 +184,13 @@ export function Betslip({
               <ul className="betslip-competitions">
                 {selectedCompetitions.map((competition) => (
                   <li key={competition.id}>
-                    <span className="betslip-competition">{competition.name}</span>
+                    <span className="betslip-competition betslip-competition-badge">
+                      <CompetitionBadge
+                        id={competition.id}
+                        name={competition.name}
+                        size="sm"
+                      />
+                    </span>
                   </li>
                 ))}
               </ul>
