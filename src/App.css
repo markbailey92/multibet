@@ -1854,11 +1854,15 @@ h2 {
 
 .home-filter-phases {
   flex: 0 0 auto;
+  padding-right: 0.65rem;
+  margin-right: 0.15rem;
+  border-right: 1px solid var(--line);
 }
 
 .home-filter-competitions {
   flex: 1 1 auto;
   min-width: 0;
+  padding-left: 0.15rem;
 }
 
 .home-filter-row .cat-tabs button {
@@ -2181,6 +2185,9 @@ body.builder-open {
   .home-filter-phases,
   .home-filter-competitions {
     flex: 1 1 100%;
+    padding: 0;
+    margin: 0;
+    border-right: none;
   }
 
   .home-filter-select-wrap,
