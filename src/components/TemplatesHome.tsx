@@ -4,6 +4,19 @@ import { useSheetData } from '../context/SheetDataContext'
 import { MATCH_PHASES, type MatchPhase } from '../lib/sports'
 
 type PhaseFilter = 'all' | MatchPhase
+type HomeView = 'cards' | 'table'
+
+const VIEW_STORAGE_KEY = 'multibet.home.view.v1'
+
+function readHomeView(): HomeView {
+  try {
+    const raw = localStorage.getItem(VIEW_STORAGE_KEY)
+    if (raw === 'cards' || raw === 'table') return raw
+  } catch {
+    /* ignore */
+  }
+  return 'cards'
+}
 
 function templateMarketTypes(template: SavedMultibet): string[] {
   const names = new Set<string>()
@@ -12,6 +25,24 @@ function templateMarketTypes(template: SavedMultibet): string[] {
     if (label) names.add(label)
   }
   return [...names]
+}
+
+function formatPhase(template: SavedMultibet): string {
+  return MATCH_PHASES.filter((phase) => template.phases.includes(phase.id))
+    .map((phase) => phase.name)
+    .join(', ')
+}
+
+function formatUpdated(iso: string): string {
+  try {
+    return new Date(iso).toLocaleDateString([], {
+      month: 'short',
+      day: 'numeric',
+      year: 'numeric',
+    })
+  } catch {
+    return '—'
+  }
 }
 
 export function TemplatesHome({
@@ -28,11 +59,20 @@ export function TemplatesHome({
   const { getSport, sports } = useSheetData()
   const [menuId, setMenuId] = useState<string | null>(null)
   const menuRef = useRef<HTMLDivElement>(null)
+  const [view, setView] = useState<HomeView>(readHomeView)
 
   const [phaseFilter, setPhaseFilter] = useState<PhaseFilter>('all')
   const [marketTypeFilter, setMarketTypeFilter] = useState('all')
   const [competitionFilter, setCompetitionFilter] = useState('all')
   const [searchQuery, setSearchQuery] = useState('')
+
+  useEffect(() => {
+    try {
+      localStorage.setItem(VIEW_STORAGE_KEY, view)
+    } catch {
+      /* ignore */
+    }
+  }, [view])
 
   useEffect(() => {
     if (!menuId) return
@@ -109,6 +149,13 @@ export function TemplatesHome({
     setSearchQuery('')
   }
 
+  function confirmDelete(template: SavedMultibet) {
+    setMenuId(null)
+    if (window.confirm(`Delete “${template.name}”?`)) {
+      onDelete(template.id)
+    }
+  }
+
   return (
     <main className="home">
       <section className="home-hero">
@@ -118,9 +165,31 @@ export function TemplatesHome({
             Create reusable selection templates, then open them to edit legs.
           </p>
         </div>
-        <button type="button" className="home-create" onClick={onCreate}>
-          Create template
-        </button>
+        <div className="home-hero-actions">
+          {templates.length > 0 && (
+            <div className="mode-toggle home-view-toggle" role="group" aria-label="Template view">
+              <button
+                type="button"
+                className={view === 'cards' ? 'is-active' : ''}
+                aria-pressed={view === 'cards'}
+                onClick={() => setView('cards')}
+              >
+                Cards
+              </button>
+              <button
+                type="button"
+                className={view === 'table' ? 'is-active' : ''}
+                aria-pressed={view === 'table'}
+                onClick={() => setView('table')}
+              >
+                Table
+              </button>
+            </div>
+          )}
+          <button type="button" className="home-create" onClick={onCreate}>
+            Create template
+          </button>
+        </div>
       </section>
 
       {templates.length > 0 && (
@@ -221,6 +290,118 @@ export function TemplatesHome({
             </button>
           )}
         </div>
+      ) : view === 'table' ? (
+        <div className="home-table-wrap">
+          <table className="home-table">
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Phase</th>
+                <th scope="col">Legs</th>
+                <th scope="col">Market types</th>
+                <th scope="col">Competitions</th>
+                <th scope="col">Updated</th>
+                <th scope="col">
+                  <span className="sr-only">Actions</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {filtered.map((template) => {
+                const sport = getSport(template.sportId)
+                const selectedCompetitions = sport.competitions.filter((competition) =>
+                  template.competitionIds.includes(competition.id),
+                )
+                const markets = templateMarketTypes(template)
+                const menuOpen = menuId === template.id
+                const menuDomId = `home-table-menu-${template.id}`
+
+                return (
+                  <tr
+                    key={template.id}
+                    className="home-table-row"
+                    tabIndex={0}
+                    aria-label={`Open ${template.name}`}
+                    onClick={() => {
+                      setMenuId(null)
+                      onEdit(template)
+                    }}
+                    onKeyDown={(event: KeyboardEvent<HTMLTableRowElement>) => {
+                      if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault()
+                        setMenuId(null)
+                        onEdit(template)
+                      }
+                    }}
+                  >
+                    <td className="home-table-name">
+                      <span className="home-table-title">{template.name}</span>
+                      <span className="home-table-sub">{sport.name}</span>
+                    </td>
+                    <td>{formatPhase(template) || '—'}</td>
+                    <td>{template.legs.length}</td>
+                    <td className="home-table-markets">
+                      {markets.length === 0 ? '—' : markets.join(', ')}
+                    </td>
+                    <td className="home-table-comps">
+                      {selectedCompetitions.length === 0
+                        ? '—'
+                        : selectedCompetitions.length === sport.competitions.length
+                          ? 'All'
+                          : selectedCompetitions.map((c) => c.name).join(', ')}
+                    </td>
+                    <td className="home-table-date">
+                      {formatUpdated(template.updatedAt)}
+                    </td>
+                    <td
+                      className="home-table-actions"
+                      onClick={(event) => event.stopPropagation()}
+                      onKeyDown={(event) => event.stopPropagation()}
+                    >
+                      <div
+                        className="home-card-menu"
+                        ref={menuOpen ? menuRef : undefined}
+                      >
+                        <button
+                          type="button"
+                          className={`home-card-menu-trigger ${menuOpen ? 'is-open' : ''}`}
+                          aria-label={`Actions for ${template.name}`}
+                          aria-haspopup="menu"
+                          aria-expanded={menuOpen}
+                          aria-controls={menuDomId}
+                          onClick={() =>
+                            setMenuId((current) =>
+                              current === template.id ? null : template.id,
+                            )
+                          }
+                        >
+                          ⋮
+                        </button>
+                        {menuOpen && (
+                          <div
+                            id={menuDomId}
+                            className="home-card-menu-dropdown"
+                            role="menu"
+                            aria-label={`${template.name} actions`}
+                          >
+                            <button
+                              type="button"
+                              className="home-card-menu-item is-danger"
+                              role="menuitem"
+                              onClick={() => confirmDelete(template)}
+                            >
+                              Delete
+                            </button>
+                          </div>
+                        )}
+                      </div>
+                    </td>
+                  </tr>
+                )
+              })}
+            </tbody>
+          </table>
+        </div>
       ) : (
         <ul className="home-list">
           {filtered.map((template) => {
@@ -295,12 +476,7 @@ export function TemplatesHome({
                           type="button"
                           className="home-card-menu-item is-danger"
                           role="menuitem"
-                          onClick={() => {
-                            setMenuId(null)
-                            if (window.confirm(`Delete “${template.name}”?`)) {
-                              onDelete(template.id)
-                            }
-                          }}
+                          onClick={() => confirmDelete(template)}
                         >
                           Delete
                         </button>
