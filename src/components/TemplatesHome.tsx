@@ -296,6 +296,7 @@ export function TemplatesHome({
             <thead>
               <tr>
                 <th scope="col">Name</th>
+                <th scope="col">Sport</th>
                 <th scope="col">Phase</th>
                 <th scope="col">Legs</th>
                 <th scope="col">Market types</th>
@@ -336,8 +337,8 @@ export function TemplatesHome({
                   >
                     <td className="home-table-name">
                       <span className="home-table-title">{template.name}</span>
-                      <span className="home-table-sub">{sport.name}</span>
                     </td>
+                    <td>{sport.name}</td>
                     <td>{formatPhase(template) || '—'}</td>
                     <td>{template.legs.length}</td>
                     <td className="home-table-markets">

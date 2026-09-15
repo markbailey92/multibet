@@ -2047,13 +2047,6 @@ h2 {
   line-height: 1.25;
 }
 
-.home-table-sub {
-  display: block;
-  margin-top: 0.15rem;
-  color: var(--ink-muted);
-  font-size: 0.78rem;
-}
-
 .home-table-markets,
 .home-table-comps {
   max-width: 16rem;
