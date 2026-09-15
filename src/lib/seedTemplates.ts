@@ -340,12 +340,47 @@ const SEED_DEFS: SeedDef[] = [
 
 const SEED_STAMP = '2026-03-15T12:00:00.000Z'
 
+/** Varied soccer competition targets — cycled across the seed pack. */
+const SOCCER_COMP_SETS: string[][] = [
+  ['epl'],
+  ['laliga'],
+  ['seriea'],
+  ['bundesliga'],
+  ['ligue1'],
+  ['epl', 'laliga'],
+  ['epl', 'seriea'],
+  ['laliga', 'seriea'],
+  ['bundesliga', 'ligue1'],
+  ['epl', 'bundesliga'],
+  ['epl', 'laliga', 'seriea'],
+  ['laliga', 'seriea', 'bundesliga'],
+  ['epl', 'ligue1'],
+  ['seriea', 'ligue1'],
+  ['epl', 'laliga', 'bundesliga', 'ligue1'],
+  ['epl', 'laliga', 'seriea', 'bundesliga', 'ligue1'],
+  ['epl', 'seriea', 'ligue1'],
+  ['laliga', 'bundesliga'],
+  ['seriea', 'bundesliga', 'ligue1'],
+  ['epl', 'laliga', 'ligue1'],
+  ['bundesliga'],
+  ['epl', 'seriea', 'bundesliga'],
+  ['laliga', 'ligue1'],
+  ['epl', 'bundesliga', 'ligue1'],
+  ['seriea'],
+  ['laliga', 'seriea', 'ligue1'],
+  ['epl', 'laliga', 'seriea', 'bundesliga'],
+  ['ligue1', 'bundesliga', 'seriea'],
+  ['epl'],
+  ['epl', 'laliga', 'seriea', 'bundesliga', 'ligue1'],
+]
+
 export function buildSeedTemplates(): SavedMultibet[] {
-  const competitionIds = allCompetitionIds('soccer')
+  const allSoccer = allCompetitionIds('soccer')
   return SEED_DEFS.map((def, index) => {
     const savedAt = new Date(
       Date.parse(SEED_STAMP) + index * 60_000,
     ).toISOString()
+    const competitionIds = SOCCER_COMP_SETS[index] ?? allSoccer
     return {
       id: def.id,
       name: def.name,

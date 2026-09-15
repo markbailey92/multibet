@@ -9,6 +9,7 @@ import {
 const SAVED_KEY = 'multibet.saved.templates.v1'
 const SEED_MERGED_KEY = 'multibet.seed.templates.merged.v1'
 const SEED_NAMES_KEY = 'multibet.seed.templates.names.v2'
+const SEED_COMPS_KEY = 'multibet.seed.templates.comps.v1'
 
 export type SavedMultibet = {
   id: string
@@ -118,6 +119,22 @@ export function ensureSeedTemplates(): SavedMultibet[] {
       })
       writeSavedTemplates(items)
       localStorage.setItem(SEED_NAMES_KEY, '1')
+    }
+  } catch {
+    /* ignore */
+  }
+
+  try {
+    if (localStorage.getItem(SEED_COMPS_KEY) !== '1') {
+      const compsById = new Map(
+        buildSeedTemplates().map((seed) => [seed.id, seed.competitionIds]),
+      )
+      const items = readSavedTemplates().map((item) => {
+        const nextComps = compsById.get(item.id)
+        return nextComps ? { ...item, competitionIds: [...nextComps] } : item
+      })
+      writeSavedTemplates(items)
+      localStorage.setItem(SEED_COMPS_KEY, '1')
     }
   } catch {
     /* ignore */
